@@ -1,5 +1,5 @@
 // Todo programa en Java debe estar dentro de una clase, esta clase debe ser pública
-public class Programa{
+public class ProgramaNuevo{
 	// Inicializamos un método en nuestra clase público,para la JVM
 	// Los métodos estáticos pueden ser invocados sin tener que crear una instancia de la clase
 	// void nos dice que regresa ningún valor
@@ -18,7 +18,7 @@ public class Programa{
 	System.out.println("- Producto : " + producto);	
 	System.out.println("- Precio con descuento : " + (precio - descuento));
 	System.out.println("- Plazo de pago en anios : " + (meses / 12.0));
-	System.out.printf("- Pago mensual : " + ((precio - descuento) / meses));
+	System.out.prinf("- Pago mensual : %.2f%n" , ((precio - descuento) / meses));
 	System.out.println("=== Fin de la ficha ===");
 
 	}
