@@ -14,6 +14,7 @@ public class ProgramaNuevo{
 	double meses = 18.0;
 
 	// Imprimimos al sistema
-	System.out.printf("=== Ficha de compra ===%n- Producto : %s%n- Precio con descuento : %d%n- Plazo de pago en anios : %f%n- Pago mensual : %.2f%n=== Fin de la ficha ===%n", producto,(precio - descuento),(meses / 12.0), ((precio - descuento) / meses));
+	System.out.printf("=== Ficha de compra ===%n- Producto : %s%n- Precio con descuento : %d%n- Plazo de pago en anios : %.2f%n- Pago mensual : %.2f%n=== Fin de la ficha ===%n", producto,(precio - descuento),(meses / 12.0), ((precio - descuento) / meses));
+	// Esto está horrible, ya enseñen a hacer strings largas con """ """ para que lo pueda usar
 	}
 }
