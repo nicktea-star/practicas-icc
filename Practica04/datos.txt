@@ -1,0 +1,10 @@
+Datos necesarios:
+Precio de la laptop
+En concreto, el precio de la laptop de nuestro primer cliente
+La cantidad de mensualidades en las que van a pagar
+Interés anual del 15%
+Pago en total
+
+Datos innecesarios:
+Las especificaciones de las laptops nos es en general indiferente.
+La calificación del cliente nos es por ahora irrelevante.
