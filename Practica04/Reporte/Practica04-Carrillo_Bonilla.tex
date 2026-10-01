@@ -91,8 +91,33 @@
 			\printbibliography
 	\section*{Parte 3: Reto de abstracción}
 		\subsection*{Actividad 3.1 - Filtrando información}
+			He aquí una lista condensada de los datos que aprecié como necesarios y como innecesarios.
+			\textbf{Datos necesarios:}
+			\begin{itemize}
+				\item Precio de la laptop.
+				\item En concreto, el precio de la laptop de nuestro primer cliente
+				\item La cantidad de mensualidades en las que van a pagar
+				\item Interés anual del 15\% .
+				\item Pago en total.
+			\end{itemize}
+
+			El precio es indispensable para saber cuánto cobraremos, en especial el de Robbie, por esta misma razón debemos de saber en cuántas mensualidades nos va a pagar y su interés. Técnicamente el pago total lo sabremos nosotrxs, y no es un dato que se nos dé, sino que lo tenemos que deducir con la información dada.
+
+			\textbf{Datos innecesarios:}
+			\begin{itemize}
+				\item Especificaciones de la laptop.
+				\item La calificación del cliente.
+			\end{itemize}
+
+			Las especificaciones de la laptop nos son indiferentes, el cliente --- Robbie --- nos va a pagar incluso si su laptop la comprara descompuesta. Y la calificación del cliente, aunque es importante, no es vital pues no sabemos todavía la forma en la que su calificación afectará sus mensualidades o su interés. 
+
+			De lejos, el dato que más me costó clasificar fue precisamente el de la calificación del cliente, porque a la vez tanto es importante para el subsecuente desarrollo de nuestro programa, como nos es superfluo para el problema a mano. Implementarlo además excede nuestras capacidades técnicas --- requeriríamos hacer un objecto \texttt{cliente} con la calificación como atributo --- y eso complicaría innecesariamente nuestra base de código demasiado pronto en el ciclo de desarrollo.
+
 		\subsection*{Actividad 3.2 - Cumpliendo los deseos del señor Pines}
+			Mi implementación me parece sumamente mediocre y subpar. La falta de herramientas de control de flujo lleva inevitablemente a que calculemos nuestro interés en una sola entrega en lugar de calcularlo año por año.
 			\begin{center}
 				\includegraphics[width=\linewidth]{./images/P3-2-1.png}
 			\end{center}
+	\section*{Conclusión}
+		Esta práctica es muy interesante porque por fin empezamos a resolver problemas de programación y es una gran motivación para empezar a aprender métodos tradicionales y procedurales de programación, como también nos deja atisbar la clase (ja, ja) de problemas que podremos resolver con objetos. Finalmente, pero no por ello menos importante, aprendí que debo empezar a leer con cuidado las instrucciones en general y los \textit{verbos} que se utilizan en particular, pues más de una vez tuve que realizar una tarea en múltiples ocasiones porque borraba, editaba y renombraba archivos que debía de dejar intactos.
 \end{document}
