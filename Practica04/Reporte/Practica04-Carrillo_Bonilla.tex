@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage{graphicx}
 \usepackage{biblatex}
+\usepackage[spanish]{babel}
 \addbibresource{Practica04-Carrillo_Bonilla.bib}
 \begin{document}
 	\begin{titlepage}
@@ -31,7 +32,7 @@
 			\begin{center}
 				\includegraphics[width=\linewidth]{./images/P1-1-3.png}
 			\end{center}
-			Como Pythonista asumí que las variables funcionaban igual aquí, pronto descubrí mi error.
+			Al principio, quise ver si \texttt{String} se comporta como un dato algebraico que puedes dividir y multiplicar como en lenguages elegantes y sofisticados. Después ví que se puede operar entre \texttt{int} y \texttt{float} sin relativamente ningún problema. Se pueden concatenar cadenas con números y además ví que \texttt{char} se comporta como un número. Sin embargo, \texttt{boolean} no admite valores que no sean estrictamente booleanos.
 			\begin{center}
 				\includegraphics[width=\linewidth]{./images/P1-1-4.png}
 			\end{center}
@@ -39,34 +40,51 @@
 				\includegraphics[width=\linewidth]{./images/P1-1-5.png}
 			\end{center}
 		\subsection*{Actividad 1.2 - Agregando variables en P2}
+			Tuve que crear el archivo otra vez porque lo había borrado.
 			\begin{center}
 				\includegraphics[width=\linewidth]{./images/P1-2-1.png}
 			\end{center}
+			Lo único elegante aquí fue lo que hice con \texttt{char}. Para los demás usé \texttt{String}. En el nombre la decisión me parece obvia. No así con el número de cuenta. En primera, no sé qué tipo de números de cuenta sean válidos, y por lo tanto puede ser que \texttt{int} no alcance. Además, sería peligroso dejar que el usuario manipule \textbf{numéricamente} esa información.
 			\begin{center}
 				\includegraphics[width=\linewidth]{./images/P1-2-2.png}
 			\end{center}
+			El programa compiló sin problemas.
 			\begin{center}
 				\includegraphics[width=\linewidth]{./images/P1-2-3.png}
 			\end{center}
 	\section*{Parte 2: Comentarios y expresiones elegantes}
 		\subsection*{Actividad 2.1 - Comentarios en Java}
+			También tuve que volver a descargar el programa \texttt{Programa.java}.
 			\begin{center}
 				\includegraphics[width=\linewidth]{./images/P2-1-1.png}
 			\end{center}
+			Los comentarios que hice me parecen prudentes porque muchos de mis compañerxs tienen mucha curiosidad de qué es lo que pasa realmente con la firma del método principal.
 			\begin{center}
 				\includegraphics[width=\linewidth]{./images/P2-1-2.png}
 			\end{center}
+			Después de hacer comentarios, el programa sigue corriendo bien.
+			\begin{center}
+				\includegraphics[width=\linewidth]{./images/P2-1-3.png}
+			\end{center}
 		\subsection*{Actividad 2.2 - Printf}
-			Consulté una página de internet para resolver esta actividad \cite{printf}.
+			Consulté una página de internet para resolver esta actividad \cite{printf}. \texttt{printf} utiliza placeholders precedidos con \% para distintos tipos de datos. Para \texttt{float}, podemos controlar el número de dígitos después del punto decimal con \texttt{\% .2f}.
+
+			Renombré el archivo sin saber que también tenía que subir el archivo con comentarios.
 			\begin{center}
 				\includegraphics[width=\linewidth]{./images/P2-2-1.png}
 			\end{center}
+
+			Aquí formateo el output del programa solo para anios.
 			\begin{center}
 				\includegraphics[width=\linewidth]{./images/P2-2-2.png}
 			\end{center}
+
+			Aquí formateo para que todo el output del programa se encuentre en una sola línea
 			\begin{center}
 				\includegraphics[width=\linewidth]{./images/P2-2-3.png}
 			\end{center}
+
+			El programa corre sin problemas.
 			\begin{center}
 				\includegraphics[width=\linewidth]{./images/P2-2-4.png}
 			\end{center}
