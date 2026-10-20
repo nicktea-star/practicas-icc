@@ -4,8 +4,8 @@ public class CotizadorPines {
 		int meses = 21;
 		char califCliente = 'E';
 		boolean condicion = (meses > 0) && (precio > 0);
-
 		double tasa = 15.0;
+
 		if (califCliente == 'P') {
 			tasa -= 2;
 		} else if (califCliente == 'R') {
@@ -17,11 +17,18 @@ public class CotizadorPines {
 		}
 
 		if (condicion) {
-			double anios = meses / 12;
-			double mensualidad = precio / meses;
-			double interes = precio * (tasa/100) * anios;
-			double total = precio + interes;
-			System.out.printf("Mensualidades: %.2f%n Interés: %.2f%n Pago total: %.2f%n", mensualidad, interes, total);
+			double tasaMensual = (tasa / 100) / 12.0;
+			double saldo = precio ;
+			double total = 0;
+			for (int i = 1; i <= meses; i++) {
+				saldo = saldo * (1+tasaMensual);
+				System.out.printf("En el mes %d se tiene un saldo de %.2f %n",i,saldo);
+			}
+
+			double interesCompuestoTeorico = precio * (Math.pow((1+tasaMensual),21));
+
+			System.out.printf("Interés compuesto: %.2f Interés compuesto teórico: %.2f", saldo, interesCompuestoTeorico);
+			
 		} else if (!(meses > 0)) {
 			System.out.println("Su préstamo se tiene que pagar en al menos un mes.");
 		} else if (!(precio > 0)) {
