@@ -1,6 +1,6 @@
 public class EstimacionPi {
 	public static void main(String[] args) {
-		int dardosLanzados = 100;
+		int dardosLanzados = 1000000;
 		int dardosDentro = 0;
 		int contador = 0;
 		while (contador <= dardosLanzados) {
