@@ -1,7 +1,7 @@
 public class PrecisionPi {
 	public static void main(String[] args) {
 		double aproximacion = 0;
-		double margenError = 0.01;
+		double margenError = 0.001;
 		double diferenciaError = Math.abs(Math.PI - aproximacion);
 		int dardosLanzados = 0;
 		int dardosDentro = 0;
@@ -15,7 +15,8 @@ public class PrecisionPi {
 			dardosLanzados++;
 			aproximacion = 4 * ((double) dardosDentro/dardosLanzados);
 			diferenciaError = Math.abs(Math.PI - aproximacion);
-			System.out.printf("%f %d %f %f %n",aproximacion, dardosLanzados, aproximacion, diferenciaError);
 		}
+
+		System.out.printf("%d %.6f %n",dardosLanzados,aproximacion);
 	}
 }
