@@ -1,8 +1,8 @@
 public class CotizadorPines {
 	public static void main(String[] args) {
 		int precio = 12899;
-		int meses = -1;
-		char califCliente = 'R';
+		int meses = 21;
+		char califCliente = 'E';
 		boolean condicion = (meses > 0) && (precio > 0);
 
 		double tasa = 15.0;
