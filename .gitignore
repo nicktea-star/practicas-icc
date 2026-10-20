@@ -4,5 +4,4 @@
 *.blg
 *.log
 *.run.xml
-*.class
 *.latexmkrc
