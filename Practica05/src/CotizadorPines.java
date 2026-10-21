@@ -21,7 +21,7 @@ public class CotizadorPines {
 			double saldo = precio ;
 			double total = 0;
 
-			int anios = meses / 12;
+			double anios = meses / 12.0;
 			double interesSimple = precio * (tasa/100) * anios;
 			double totalSimple = precio + interesSimple;
 
