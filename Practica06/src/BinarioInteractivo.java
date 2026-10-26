@@ -5,11 +5,11 @@ public class BinarioInteractivo {
 		int numero;
 		int cociente;
 		int residuo;
-		String numeroBinario = "";
 		boolean condicion = true;
 
 		Scanner lector = new Scanner(System.in);
 		while (condicion) {
+			String numeroBinario = "";
 			System.out.print("Introduzca el número que quiera convertir ");
 			numero = lector.nextInt();
 			lector.nextLine();
