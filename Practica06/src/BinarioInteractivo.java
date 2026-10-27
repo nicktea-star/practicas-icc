@@ -21,11 +21,11 @@ public class BinarioInteractivo {
 					if (numero >= 0) {
 						condicionInput = true;
 					} else {
-						System.out.print("Tiene que introducir un número no negativo.");
+						System.out.print("Tiene que introducir un número no negativo ");
 						condicionInput = false;
 					}
 				} else {
-					System.out.print("Tiene que introducir un número.");
+					System.out.print("Tiene que introducir un número entero ");
 					condicionInput = false;
 				}
 				lector.nextLine();
