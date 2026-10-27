@@ -25,7 +25,7 @@ public class BinarioInteractivo {
 						condicionInput = false;
 					}
 				} else {
-					System.out.println("Tiene que introducir un número.");
+					System.out.print("Tiene que introducir un número.");
 					condicionInput = false;
 				}
 				lector.nextLine();
