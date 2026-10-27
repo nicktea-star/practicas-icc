@@ -1,4 +1,4 @@
-# Práctica 5 -- Entrada de datos y cierre de la Cabaña del Misterio
+# Práctica 6 -- Entrada de datos y cierre de la Cabaña del Misterio
 ## Contenido
 
 Este proyecto contiene tres programas:
