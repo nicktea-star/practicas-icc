@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class BinarioInteractivo {
 	public static void main(String[] args) {
-		int numero = 0;
+		int numero;
 		int cociente;
 		int residuo;
 		boolean condicion = true;
@@ -10,6 +10,8 @@ public class BinarioInteractivo {
 
 		Scanner lector = new Scanner(System.in);
 		while (condicion) {
+			numero = -1;
+			cociente = 1;
 			String numeroBinario = "";
 
 			System.out.print("Introduzca el número que quiera convertir ");
@@ -19,7 +21,7 @@ public class BinarioInteractivo {
 					if (numero >= 0) {
 						condicionInput = true;
 					} else {
-						System.out.println("Tiene que introducir un número no negativo.");
+						System.out.print("Tiene que introducir un número no negativo.");
 						condicionInput = false;
 					}
 				} else {
@@ -42,6 +44,7 @@ public class BinarioInteractivo {
 			lector.nextLine();
 			if (inputCondicion == 'S' || inputCondicion == 's') {
 				condicion = true;
+				condicionInput = false;
 			} else {
 				condicion = false;
 			}
