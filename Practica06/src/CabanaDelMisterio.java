@@ -136,7 +136,7 @@ public class CabanaDelMisterio {
 				break;
 			case 3:
 				System.out.println("### Opción 3 : Comparación de intereses ###");
-				double interesCompuestoTeorico = precio * (Math.pow((1+tasaMensual),21));
+				double interesCompuestoTeorico = (precio * (Math.pow((1+tasaMensual),21))) - precio;
 				System.out.printf("> Interés Simple = %.2f %n",interesSimple);
 				System.out.printf("> Interés Compuesto = %.2f %n",interesCompuestoTeorico);
 				System.out.printf("> La diferencia entre ellos es de %.2f %n", Math.abs(interesSimple - interesCompuestoTeorico));
