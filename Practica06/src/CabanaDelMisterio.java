@@ -5,26 +5,86 @@ public class CabanaDelMisterio {
 		Scanner lector = new Scanner(System.in);
 
 		String nombreCliente;
-		int precio;
-		int meses;
+		int precio = 1;
+		int meses = 1;
 		char califCliente;
-		double tasa;
+		String califClientePalabra = "";
+		double tasa = 2;
+		boolean inputsValidos;
 
 		// Input de Mabel o del cliente.
 		System.out.print("Introduzca el nombre de su cliente. ");
 		nombreCliente = lector.nextLine();
-		System.out.print("Introduzca la categoría de Cliente 'P' 'E' o 'R'. ");
-		califCliente = lector.next().charAt(0);
-		System.out.print("Introduzca el capital prestado. ");
-		precio = lector.nextInt();
-		lector.nextLine();
-		System.out.print("Introduzca la tasa de interés anual base. ");
-		tasa = lector.nextDouble();
-		lector.nextLine();
-		System.out.print("¿En cuántos meses se pagará su préstamo? ");
-		meses = lector.nextInt();
+		do {
+			System.out.print("Introduzca la tasa de interés anual base. ");
+			if (lector.hasNextDouble()) {
+				tasa = lector.nextDouble();
+				if (tasa >= 2) {
+					inputsValidos = true;
+				} else {
+					System.out.println("Su porcentaje de tasa anual tiene que ser mayor al 2% . \n Esto se debe a que, si el cliente tiene esta tasa y se vuelve preferente, pasa a tener una tasa anual del 0% .");
+					inputsValidos = false;
+				}
+			} else {
+				System.out.println("Introduzca un número que sea igual al porcentaje de su tasa anual base.");
+				inputsValidos = false;
+			}
+			lector.nextLine();
+		} while (!(inputsValidos));
+		do {
+			System.out.print("Introduzca la categoría de Cliente 'P' 'E' o 'R'. ");
+			califCliente = lector.next().charAt(0);
+			if (califCliente == 'P') {
+				tasa -= 2;
+				califClientePalabra = "Preferente";
+				inputsValidos = true;
+			} else if (califCliente == 'R') {
+				tasa += 3;
+				califClientePalabra = "Riesgoso";
+				inputsValidos = true;
+			} else if (califCliente == 'E') {
+				tasa = tasa;
+				califClientePalabra = "Estándar";
+				inputsValidos = true;
+			} else {
+				System.out.println("Tiene que introducir solo una letra, sin estar rodeada por comillas: E para clientes estándar, P para preferentes y R para riesgosos.");
+				inputsValidos = false;
+			}
+			lector.nextLine();
+		} while (!(inputsValidos));
+		do {
+			System.out.print("Introduzca el capital prestado. ");
+			if (lector.hasNextInt()) {
+				precio = lector.nextInt();
+				if (precio > 0) {
+					inputsValidos = true;
+				} else {
+					System.out.println("Introduzca un número mayor a cero para prestar.");
+					inputsValidos = false;
+				}
+			} else {
+				System.out.println("Introduzca un número ENTERO para prestar.");
+				inputsValidos = false;
+			}
+			lector.nextLine();
+		} while(!(inputsValidos));
+		do {
+			System.out.print("¿En cuántos meses se pagará su préstamo? ");
+			if (lector.hasNextInt()) {
+				meses = lector.nextInt();
+				if (meses > 0) {
+					inputsValidos = true;
+				} else {
+					System.out.println("El número de meses en los que se paga el préstamo tiene que ser mayor a cero.");
+					inputsValidos = false;
+				}
+			} else {
+				System.out.println("Tiene que introducir un número para los meses en los que se pagará el préstamo.");
+				inputsValidos = false;
+			}
+			lector.nextLine();
+		} while(!(inputsValidos));
 
-		boolean inputsValidos = (((califCliente == 'P') || (califCliente == 'R') || (califCliente == 'E')) && (precio > 0) && (meses > 0) && (tasa > 0));
 
 		// Datos a computar en el programa:
 		double tasaMensual = (tasa / 100) / 12.0;
@@ -32,20 +92,7 @@ public class CabanaDelMisterio {
 		double anios = meses / 12.0;
 		double interesSimple = precio * (tasa/100) * anios;
 		double totalSimple = precio + interesSimple;
-		String califClientePalabra = "";
 
-		if (califCliente == 'P') {
-			tasa -= 2;
-			califClientePalabra = "Preferente";
-		} else if (califCliente == 'R') {
-			tasa += 3;
-			califClientePalabra = "Riesgoso";
-		} else if (califCliente == 'E') {
-			tasa = tasa;
-			califClientePalabra = "Estándar";
-		} else {
-			inputsValidos = false;
-		}
 
 		// Input de menú para usar el programa.
 		System.out.println("##### Sistema de prestamos de la Cabaña del misterio #####");
