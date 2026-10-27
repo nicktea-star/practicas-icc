@@ -178,6 +178,7 @@ public class CabanaDelMisterio {
 				System.out.println("Introduzca un número del menú para realizar una operación");
 				erroresMenu++;
 			}
+			lector.nextLine();
 
 			if (erroresMenu >= 3) {
 				System.out.println("Ha cometido 3 errores en el menú. El programa será abortado por este motivo.");
