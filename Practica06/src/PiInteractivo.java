@@ -2,19 +2,26 @@ import java.util.Scanner;
 public class PiInteractivo {
 	public static void main(String[] args) {
 		int dardosLanzados = 0;
-		double inputDardos;
+		int inputDardos;
 		boolean condicion;
 		Scanner lector = new Scanner(System.in);
 
 		do {
-			System.out.println("Inserte el número de dardos que quiera lanzar");
-			inputDardos = lector.nextDouble();
-			condicion = (inputDardos % 1 == 0) && (inputDardos > 0);
-			if (condicion) {
-				dardosLanzados = (int) inputDardos;
+			System.out.println("Introduzca el número de dardos que quiere lanzar para calcular Pi.");
+			if (lector.hasNextInt()) {
+				inputDardos = lector.nextInt();
+				if (inputDardos > 0) {
+					dardosLanzados = inputDardos;
+					condicion = true;
+				} else {
+					System.out.println("Su número entero debe de ser positivo.");
+					condicion = false;
+				}
 			} else {
-				System.out.println("Su número debe de ser un entero, mayor a cero y menor que 2147483647");
+				condicion = false;
+				System.out.println("Su entrada debe de ser un número entero.");
 			}
+			lector.nextLine();
 		} while (!(condicion));
 
 		lector.close();
