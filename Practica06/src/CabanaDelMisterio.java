@@ -105,7 +105,7 @@ public class CabanaDelMisterio {
 			System.out.println("3) Comparar interes simple y compuesto.");
 			System.out.println("4) Cambiar el capital del prestamo.");
 			System.out.println("0) Salir.");
-			System.out.print("> Por favor, elige una opción :");
+			System.out.print("> Por favor, elige una opción : ");
 
 			if (lector.hasNextInt()) {
 			int opcion = lector.nextInt();
@@ -168,6 +168,7 @@ public class CabanaDelMisterio {
 						System.out.printf("- Capital del préstamo: %d %n", precio);
 						System.out.printf("- Tasa anual: %.0f %n", tasa);
 						operacionesEfectivas++;
+						condicionMenu = false;
 						break;
 					default:
 						System.out.println("Elija una opción correcta");
