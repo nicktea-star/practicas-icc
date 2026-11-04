@@ -11,11 +11,25 @@ public class Paquete {
     // *** ATRIBUTOS ***
     // POR HACER: Declara los atributos necesarios de acuerdo a tu diseno y a la documentacion.
     // Recuerda aplicar el principio de encapsulamiento (declararlos privados).
+    private String codigoAlfanumerico;
+    private double pesoKg;
+    private double altoCm;
+    private double anchoCm;
+    private double largoCm;
+    private int valorMonetario;
 
 
     // *** CONSTRUCTORES ***
     // POR HACER: Agrega el constructor por defecto y el constructor con parametros.
     // En el constructor con parametros, asegura que el paquete cuente con dimensiones validas.
+    public Paquete(String codigoAlfanumerico, double altoCm, double anchoCm, double largoCm, int valorMonetario){
+        this.codigoAlfanumerico = codigoAlfanumerico;
+        this.pesoKg = pesoKg;
+        this.altoCm = altoCm;
+        this.anchoCm = anchoCm;
+        this.largoCm = largoCm;
+        this.valorMonetario = valorMonetario;
+    }
 
 
     // *** METODOS DE ACCESO Y ASIGNACION ***
