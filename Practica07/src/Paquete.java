@@ -108,8 +108,7 @@ public class Paquete {
      */
     public double obtenerPesoCobrable() {
         // POR HACER: Implementa la comparacion entre peso real y peso volumetrico
-        double pesoVolumetrico = (anchoCm * altoCm * largoCm)/(500);
-        double pesoCobrable = Math.max(pesoVolumetrico, pesoKg);
+        double pesoCobrable = Math.max(calculaPesoVolumetrico(), pesoKg);
         return pesoCobrable;
     }
 
@@ -123,8 +122,8 @@ public class Paquete {
      * esto se utiliza en paqueterías para poner todos los paquetes ligeros
      * en un cargo aparte, pues estos tienden a ser frágiles.
      */
-    public boolean determinarLiviano(double pesoVolumetrico, double pesoKg) {
-        if (pesoVolumetrico >= pesoKg) {
+    public boolean determinarLiviano() {
+        if (calculaPesoVolumetrico() >= pesoKg) {
             return true
         } else {
             return false
