@@ -30,11 +30,20 @@ public class Paquete {
         this.largoCm = 0;
         this.valorMonetario = 0;
     }
-    public void Paquete(String codigoAlfanumerico, double altoCm, double anchoCm, double largoCm, int valorMonetario){
+    public void Paquete(String codigoAlfanumerico, double pesoKg, double altoCm, double anchoCm, double largoCm, int valorMonetario){
         this.codigoAlfanumerico = codigoAlfanumerico;
         this.pesoKg = pesoKg;
+        if (altoCm < 0 || altoCm > 200) {
+            throw new IllegalArgumentException("Su altura debe estar entre 0 y 200 centímetros")
+        }
         this.altoCm = altoCm;
+        if (anchoCm < 0 || anchoCm > 200) {
+            throw new IllegalArgumentException("Su anchura debe estar entre 0 y 200 centímetros")
+        }
         this.anchoCm = anchoCm;
+        if (largoCm < 0 || largoCm > 200) {
+            throw new IllegalArgumentException("Su longitud debe estar entre 0 y 200 centímetros")
+        }
         this.largoCm = largoCm;
         this.valorMonetario = valorMonetario;
     }
