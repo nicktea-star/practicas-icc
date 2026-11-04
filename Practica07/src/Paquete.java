@@ -22,7 +22,7 @@ public class Paquete {
     // *** CONSTRUCTORES ***
     // POR HACER: Agrega el constructor por defecto y el constructor con parametros.
     // En el constructor con parametros, asegura que el paquete cuente con dimensiones validas.
-    public Paquete(String codigoAlfanumerico, double altoCm, double anchoCm, double largoCm, int valorMonetario){
+    public void Paquete(String codigoAlfanumerico, double altoCm, double anchoCm, double largoCm, int valorMonetario){
         this.codigoAlfanumerico = codigoAlfanumerico;
         this.pesoKg = pesoKg;
         this.altoCm = altoCm;
@@ -33,7 +33,12 @@ public class Paquete {
 
 
     // *** METODOS DE ACCESO Y ASIGNACION ***
-    // POR HACER: Agrega los metodos de consulta (getters) y de modificacion (setters) necesarios.
+    public void setCodigoAlfanumerico(String codigoAlfanumerico) {
+        this.codigoAlfanumerico = codigoAlfanumerico;
+    }
+    public String getCodigoAlfanumerico() {
+        return codigoAlfanumerico;
+    }
 
 
     // *** METODOS CALCULADORES BASE ***
@@ -46,7 +51,8 @@ public class Paquete {
      */
     public double calculaPesoVolumetrico() {
         // POR HACER: Implementa la formula de peso volumetrico
-        return 0.0;
+        double pesoVolumetrico = (anchoCm * altoCm * largoCm)/(500);
+        return pesoVolumetrico;
     }
 
     /**
@@ -57,7 +63,9 @@ public class Paquete {
      */
     public double obtenerPesoCobrable() {
         // POR HACER: Implementa la comparacion entre peso real y peso volumetrico
-        return 0.0;
+        double pesoVolumetrico = (anchoCm * altoCm * largoCm)/(500);
+        double pesoCobrable = Math.max(pesoVolumetrico, pesoKg);
+        return pesoCobrable;
     }
 
 
@@ -65,5 +73,17 @@ public class Paquete {
     // POR HACER: Agrega aqui al menos un nuevo metodo calculador util para la empresa
     // (ejemplo: recargo por envio express, costo por material fragil, descuento local, etc.)
     // Incluye sus comentarios Javadoc y los atributos necesarios.
+    /**
+     * Evalua si el paquete es de mayor peso volumetrico que peso real,
+     * esto se utiliza en paqueterías para poner todos los paquetes ligeros
+     * en un cargo aparte, pues estos tienden a ser frágiles.
+     */
+    public boolean determinarLiviano(double pesoVolumetrico, double pesoKg) {
+        if (pesoVolumetrico >= pesoKg) {
+            return true
+        } else {
+            return false
+        }
+    }
 
 }
