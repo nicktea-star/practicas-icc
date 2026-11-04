@@ -22,6 +22,14 @@ public class Paquete {
     // *** CONSTRUCTORES ***
     // POR HACER: Agrega el constructor por defecto y el constructor con parametros.
     // En el constructor con parametros, asegura que el paquete cuente con dimensiones validas.
+    public void Paquete() {
+        this.codigoAlfanumerico = A;
+        this.pesoKg = 0;
+        this.altoCm = 0;
+        this.anchoCm = 0;
+        this.largoCm = 0;
+        this.valorMonetario = 0;
+    }
     public void Paquete(String codigoAlfanumerico, double altoCm, double anchoCm, double largoCm, int valorMonetario){
         this.codigoAlfanumerico = codigoAlfanumerico;
         this.pesoKg = pesoKg;
@@ -38,6 +46,34 @@ public class Paquete {
     }
     public String getCodigoAlfanumerico() {
         return codigoAlfanumerico;
+    }
+
+    public void setPesoKg(String pesoKg) {
+        this.pesoKg = pesoKg;
+    }
+    public String getPesoKg() {
+        return pesoKg;
+    }
+
+    public void setAnchoCm(String anchoCm) {
+        this.anchoCm = anchoCm;
+    }
+    public String getAnchoCm() {
+        return anchoCm;
+    }
+
+    public void setAltoCm(String altoCm) {
+        this.altoCm = altoCm;
+    }
+    public String getAltoCm() {
+        return altoCm;
+    }
+
+    public void setLargoCm(String largoCm) {
+        this.largoCm = largoCm;
+    }
+    public String getLargoCm() {
+        return largoCm;
     }
 
 
