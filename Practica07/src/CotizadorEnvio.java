@@ -41,9 +41,9 @@ public class CotizadorEnvio {
      */
     public static double cotizarEnvio(Paquete p) {
         // POR HACER: Valida el paquete y calcula la tarifa escalonada segun los rangos
-        if (0 =< p.obtenerPesoCobrable() && p.obtenerPesoCobrable() =< 5) {
+        if (0 <= p.obtenerPesoCobrable() && p.obtenerPesoCobrable() <= 5) {
             return 120;
-        } else if (5 < p.obtenerPesoCobrable() && p.obtenerPesoCobrable() =< 15) {
+        } else if (5 < p.obtenerPesoCobrable() && p.obtenerPesoCobrable() <= 15) {
             return 120 + (18 * (p.obtenerPesoCobrable() - 5));
         } else if (15 < p.obtenerPesoCobrable()) {
             return 300 + (25 * (p.obtenerPesoCobrable() - 15));
