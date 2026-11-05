@@ -34,17 +34,23 @@ public class Paquete {
         this.codigoAlfanumerico = codigoAlfanumerico;
         this.pesoKg = pesoKg;
         if (altoCm < 0 || altoCm > 200) {
-            throw new IllegalArgumentException("Su altura debe estar entre 0 y 200 centímetros")
+            System.out.println("Su valor es inválido");
+            this.pesoKg = -1;
+        } else {
+            this.altoCm = altoCm;
         }
-        this.altoCm = altoCm;
         if (anchoCm < 0 || anchoCm > 200) {
-            throw new IllegalArgumentException("Su anchura debe estar entre 0 y 200 centímetros")
+            System.out.println("Su valor es inválido");
+            this.pesoKg = -1;
+        } else {
+            this.anchoCm = anchoCm;
         }
-        this.anchoCm = anchoCm;
         if (largoCm < 0 || largoCm > 200) {
-            throw new IllegalArgumentException("Su longitud debe estar entre 0 y 200 centímetros")
+            System.out.println("Su valor es inválido");
+            this.pesoKg = -1;
+        } else {
+            this.largoCm = largoCm;
         }
-        this.largoCm = largoCm;
         this.valorMonetario = valorMonetario;
     }
 
@@ -129,5 +135,4 @@ public class Paquete {
             return false
         }
     }
-
 }
