@@ -22,7 +22,6 @@ public class PruebaPaqueteria {
         Paquete p1 = new Paquete("PK-001", 3.5, 20,15,10,800);
         mostrarDetallePaquete(p1);
         System.out.println("Es valido?: " + CotizadorEnvio.esPaqueteValido(p1));
-        System.out.println("Peso cobrable: " + p1.obtenerPesoCobrable());
         System.out.printf("Costo de envio cotizado: $%.2f (Esperado: $120.00)\n", CotizadorEnvio.cotizarEnvio(p1));
         System.out.println("Requiere seguro?: " + CotizadorEnvio.requiereSeguro(p1));
         System.out.println();
@@ -34,7 +33,7 @@ public class PruebaPaqueteria {
         // ---------------------------------------------------------------------
         System.out.println("--- Caso 2: Paquete voluminoso (volumen predomina) ---");
         // POR HACER: Instancia el objeto p2 con los datos indicados arriba
-        Paquete p2 = new Paquete("PK-002", 2.0, 50,40,50,15000);
+        Paquete p2 = new Paquete("PK-002", 2.0, 50,40,50,1500);
         mostrarDetallePaquete(p2);
         if (CotizadorEnvio.esPaqueteValido(p2)) {
             System.out.printf("Peso volumetrico calculado: %.2f kg\n", p2.calculaPesoVolumetrico());

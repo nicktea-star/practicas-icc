@@ -75,7 +75,7 @@ public class CotizadorEnvio {
         }
         boolean condicionDimensionesIndividuales = (p.getAltoCm() > 60) || (p.getAnchoCm() > 60) || (p.getLargoCm() > 60);
         boolean condicionDimensionesTotales = (p.getAltoCm()+p.getAnchoCm()+p.getLargoCm()) > 150;
-        boolean condicionSeguro = (esPaqueteValido(p)) && ((p.getValorMonetario() > 3000) || !(condicionDimensionesIndividuales) || !(condicionDimensionesTotales));
+        boolean condicionSeguro = ((p.getValorMonetario() > 3000) || (condicionDimensionesIndividuales) || (condicionDimensionesTotales));
         if (condicionSeguro) {
             return true;
         } else {
