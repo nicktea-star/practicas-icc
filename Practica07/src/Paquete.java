@@ -139,8 +139,10 @@ public class Paquete {
      */
     public boolean determinarLiviano() {
         if (calculaPesoVolumetrico() >= pesoKg) {
+            System.out.println("Su paquete es liviano");
             return true
         } else {
+            System.out.println("Su paquete no es liviano");
             return false
         }
     }

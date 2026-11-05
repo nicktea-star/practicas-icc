@@ -19,7 +19,7 @@ public class PruebaPaqueteria {
         // ---------------------------------------------------------------------
         System.out.println("--- Caso 1: Paquete pequeno estandar ---");
         // POR HACER: Instancia el objeto p1 con los datos indicados arriba
-        Paquete p1 = null;
+        Paquete p1 = new Paquete("PK-001", 3.5, 20,15,10,800);
         mostrarDetallePaquete(p1);
         System.out.println("Es valido?: " + CotizadorEnvio.esPaqueteValido(p1));
         System.out.printf("Costo de envio cotizado: $%.2f (Esperado: $120.00)\n", CotizadorEnvio.cotizarEnvio(p1));
@@ -33,7 +33,7 @@ public class PruebaPaqueteria {
         // ---------------------------------------------------------------------
         System.out.println("--- Caso 2: Paquete voluminoso (volumen predomina) ---");
         // POR HACER: Instancia el objeto p2 con los datos indicados arriba
-        Paquete p2 = null;
+        Paquete p2 = new Paquete("PK-002", 2.0, 50,40,50,15000);
         mostrarDetallePaquete(p2);
         if (CotizadorEnvio.esPaqueteValido(p2)) {
             System.out.printf("Peso volumetrico calculado: %.2f kg\n", p2.calculaPesoVolumetrico());
@@ -50,7 +50,7 @@ public class PruebaPaqueteria {
         // ---------------------------------------------------------------------
         System.out.println("--- Caso 3: Paquete de alto valor monetario ---");
         // POR HACER: Instancia el objeto p3 con los datos indicados arriba
-        Paquete p3 = null;
+        Paquete p3 = new Paquete("PK-003", 4.0, 30,25,20,65000);
         mostrarDetallePaquete(p3);
         System.out.printf("Costo de envio: $%.2f\n", CotizadorEnvio.cotizarEnvio(p3));
         System.out.println("Requiere seguro?: " + CotizadorEnvio.requiereSeguro(p3) + " (Esperado: true)");
@@ -63,7 +63,7 @@ public class PruebaPaqueteria {
         // ---------------------------------------------------------------------
         System.out.println("--- Caso 4: Paquete sobredimensionado ---");
         // POR HACER: Instancia el objeto p4 con los datos indicados arriba
-        Paquete p4 = null;
+        Paquete p4 = new Paquete("PK-004", 5.0, 70,30,20,1200);
         mostrarDetallePaquete(p4);
         System.out.println("Requiere seguro?: " + CotizadorEnvio.requiereSeguro(p4) + " (Esperado: true por dimensiones)");
         System.out.println();
@@ -89,6 +89,10 @@ public class PruebaPaqueteria {
         // Imprime en consola los datos y resultados para evidenciar su funcionamiento.
         
         System.out.println("(Agrega aqui las pruebas de tu metodo personal)\n");
+        p1.determinarLiviano();
+        p2.determinarLiviano();
+        p3.determinarLiviano();
+        p4.determinarLiviano();
     }
 
     /**
@@ -101,6 +105,13 @@ public class PruebaPaqueteria {
         if (!CotizadorEnvio.esPaqueteValido(p)) {
             System.out.println("  [Paquete no valido o no instanciado]");
             return;
+        } else {
+            System.out.println("El código alfanumérico de su paquete es: " + p.getCodigoAlfanumerico());
+            System.out.println("El peso de su paquete es: " + p.getPesoKg());
+            System.out.println("La altura de su paquete es: " + p.getAltoCm());
+            System.out.println("La anchura de su paquete es: " + p.getAnchoCm());
+            System.out.println("La longitud de su paquete es: " + p.getLargoCm());
+            System.out.println("El valor monetario de su paquete es: " + p.getValorMonetario());
         }
         // POR HACER: Imprime en consola la informacion basica del paquete (codigo, dimensiones, peso)
     }
