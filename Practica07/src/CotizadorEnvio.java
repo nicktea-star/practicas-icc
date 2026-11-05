@@ -19,7 +19,13 @@ public class CotizadorEnvio {
      */
     public static boolean esPaqueteValido(Paquete p) {
         // POR HACER: Implementa la validacion de referencia y propiedades del paquete
-        return false;
+        if (p == null) {
+            return false;
+        } else if (p.getPesoKg() == -1) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     /**
@@ -35,7 +41,16 @@ public class CotizadorEnvio {
      */
     public static double cotizarEnvio(Paquete p) {
         // POR HACER: Valida el paquete y calcula la tarifa escalonada segun los rangos
-        return -1.0;
+        if (0 =< p.obtenerPesoCobrable() && p.obtenerPesoCobrable() =< 5) {
+            return 120;
+        } else if (5 < p.obtenerPesoCobrable() && p.obtenerPesoCobrable() =< 15) {
+            return 120 + (18 * (p.obtenerPesoCobrable() - 5));
+        } else if (15 < p.obtenerPesoCobrable()) {
+            return 300 + (25 * (p.obtenerPesoCobrable() - 15));
+        }
+        if (!(esPaqueteValido(p))) {
+            return -1.0;
+        }
     }
 
     /**
@@ -52,6 +67,13 @@ public class CotizadorEnvio {
      */
     public static boolean requiereSeguro(Paquete p) {
         // POR HACER: Evalua las condiciones de valor y dimensiones sobredimensionadas
-        return false;
+        boolean condicionDimensionesIndividuales = (p.getAltoCm() > 60) || (p.getAnchoCm() > 60) || (p.getLargoCm() > 60);
+        boolean condicionDimensionesTotales = (p.getAltoCm()+p.getAnchoCm()+p.getLargoCm()) > 150;
+        boolean condicionSeguro = (esPaqueteValido(p)) && ((p.getValorMonetario() > 3000) || !(condicionDimensionesIndividuales) || !(condicionDimensionesTotales));
+        if (condicionSeguro) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

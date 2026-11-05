@@ -22,6 +22,7 @@ public class Paquete {
     // *** CONSTRUCTORES ***
     // POR HACER: Agrega el constructor por defecto y el constructor con parametros.
     // En el constructor con parametros, asegura que el paquete cuente con dimensiones validas.
+
     /**
      * El constructor con parámetros devuelve un peso negativo si las dimensiones son inválidas y esto es usado por el verificador de paquetes
      */
@@ -69,7 +70,7 @@ public class Paquete {
     public void setPesoKg(String pesoKg) {
         this.pesoKg = pesoKg;
     }
-    public String getPesoKg() {
+    public double getPesoKg() {
         return pesoKg;
     }
 
@@ -94,7 +95,12 @@ public class Paquete {
         return largoCm;
     }
 
-
+    public void setValorMonetario(int valorMonetario) {
+        this.valorMonetario = valorMonetario;
+    }
+    public int getValorMonetario() {
+        return valorMonetario;
+    }
     // *** METODOS CALCULADORES BASE ***
 
     /**
