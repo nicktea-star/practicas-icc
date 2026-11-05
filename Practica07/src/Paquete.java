@@ -22,6 +22,9 @@ public class Paquete {
     // *** CONSTRUCTORES ***
     // POR HACER: Agrega el constructor por defecto y el constructor con parametros.
     // En el constructor con parametros, asegura que el paquete cuente con dimensiones validas.
+    /**
+     * El constructor con parámetros devuelve un peso negativo si las dimensiones son inválidas y esto es usado por el verificador de paquetes
+     */
     public void Paquete() {
         this.codigoAlfanumerico = A;
         this.pesoKg = 0;
