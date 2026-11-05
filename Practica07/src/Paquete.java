@@ -2,15 +2,21 @@
  * Clase que modela un paquete para una empresa de envios postales y paqueteria.
  * Permite registrar sus dimensiones espaciales, peso fisico y valor declarado,
  * asi como calcular su peso volumetrico y determinar el peso cobrable final.
- * 
- * @author Tu Nombre
+ *
+ * @author Hugo Tonatiuh Carrillo Bonilla
  * @version 1.0
  */
 public class Paquete {
 
-    // *** ATRIBUTOS ***
-    // POR HACER: Declara los atributos necesarios de acuerdo a tu diseno y a la documentacion.
-    // Recuerda aplicar el principio de encapsulamiento (declararlos privados).
+    /**
+     * La clase paquete cuenta con los siguientes atributos:
+     * <ul>
+     *  <li> Un codigo alfanumérico para identificarlo. </li>
+     *  <li> Un peso en kilogramos </li>
+     *  <li> Tres numeros para identificar sus dimensiones </li>
+     *  <li> Un numero para indicar el valor monetario del producto </li>
+     * </ul>
+     */
     private String codigoAlfanumerico;
     private double pesoKg;
     private double altoCm;
@@ -18,15 +24,15 @@ public class Paquete {
     private double largoCm;
     private int valorMonetario;
 
-
-    // *** CONSTRUCTORES ***
-    // POR HACER: Agrega el constructor por defecto y el constructor con parametros.
-    // En el constructor con parametros, asegura que el paquete cuente con dimensiones validas.
-
     /**
-     * El constructor con parámetros devuelve un peso negativo si las dimensiones son inválidas y esto es usado por el verificador de paquetes
+     * El constructor con parametros devuelve un peso negativo si las dimensiones son invalidas y esto es usado por el verificador de paquetes
+     * @param codigoAlfanumerico va primero.
+     * @param pesoKg es segundo, e indica el peso en <b>kilogramos</b>
+     * @param altoCm
+     * @param anchoCm
+     * @param largoCm en ese orden, para las dimensiones en <b>centimetros</b> del paquete.
+     * @param valorMonetario Un entero (no acepta centavos) para el valor en pesos del paquete.
      */
-
     public Paquete(String codigoAlfanumerico, double pesoKg, double altoCm, double anchoCm, double largoCm, int valorMonetario){
         this.codigoAlfanumerico = codigoAlfanumerico;
         this.pesoKg = pesoKg;
@@ -51,8 +57,11 @@ public class Paquete {
         this.valorMonetario = valorMonetario;
     }
 
+    /**
+     * El constructor sin parametros devuelve un paquete sin peso, dimensiones, valor, o identificador.
+     */
     public Paquete() {
-        this.codigoAlfanumerico = "A";
+        this.codigoAlfanumerico = "";
         this.pesoKg = 0;
         this.altoCm = 0;
         this.anchoCm = 0;
@@ -71,8 +80,7 @@ public class Paquete {
 
     public void setPesoKg(double pesoKg) {
         this.pesoKg = pesoKg;
-    }
-    public double getPesoKg() {
+    } public double getPesoKg() {
         return pesoKg;
     }
 
@@ -130,10 +138,6 @@ public class Paquete {
     }
 
 
-    // *** PROPUESTA PERSONAL ***
-    // POR HACER: Agrega aqui al menos un nuevo metodo calculador util para la empresa
-    // (ejemplo: recargo por envio express, costo por material fragil, descuento local, etc.)
-    // Incluye sus comentarios Javadoc y los atributos necesarios.
     /**
      * Evalua si el paquete es de mayor peso volumetrico que peso real,
      * esto se utiliza en paqueterías para poner todos los paquetes ligeros
