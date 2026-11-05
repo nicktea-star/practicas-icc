@@ -5,7 +5,7 @@
  * Al no modelar un objeto con estado interno persistente, sus metodos se declaran
  * como estaticos (static) y operan sobre los objetos {@link Paquete} recibidos por parametro.
  * 
- * @author Tu Nombre
+ * @author Hugo Tonatiuh Carrillo Bonilla
  * @version 1.0
  */
 public class CotizadorEnvio {

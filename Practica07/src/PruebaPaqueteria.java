@@ -2,7 +2,7 @@
  * Programa de prueba para verificar el correcto funcionamiento de las clases
  * {@link Paquete} y {@link CotizadorEnvio}.
  * 
- * @author Tu Nombre 
+ * @author Hugo Tonatiuh Carrillo Bonilla
  * @version 1.0
  */
 public class PruebaPaqueteria {
@@ -84,10 +84,7 @@ public class PruebaPaqueteria {
         System.out.println("======================================================");
         System.out.println("        PRUEBAS DE TU PROPUESTA PERSONAL              ");
         System.out.println("======================================================");
-        // POR HACER: Instancia los paquetes necesarios y llama a tu metodo personal
-        // propuesto en la Parte 2
-        // Imprime en consola los datos y resultados para evidenciar su funcionamiento.
-        
+
         System.out.println("(Agrega aqui las pruebas de tu metodo personal)\n");
         p1.determinarLiviano();
         p2.determinarLiviano();
@@ -113,6 +110,5 @@ public class PruebaPaqueteria {
             System.out.println("La longitud de su paquete es: " + p.getLargoCm());
             System.out.println("El valor monetario de su paquete es: " + p.getValorMonetario());
         }
-        // POR HACER: Imprime en consola la informacion basica del paquete (codigo, dimensiones, peso)
     }
 }
