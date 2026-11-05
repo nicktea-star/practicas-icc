@@ -22,6 +22,7 @@ public class PruebaPaqueteria {
         Paquete p1 = new Paquete("PK-001", 3.5, 20,15,10,800);
         mostrarDetallePaquete(p1);
         System.out.println("Es valido?: " + CotizadorEnvio.esPaqueteValido(p1));
+        System.out.println("Peso cobrable: " + p1.obtenerPesoCobrable());
         System.out.printf("Costo de envio cotizado: $%.2f (Esperado: $120.00)\n", CotizadorEnvio.cotizarEnvio(p1));
         System.out.println("Requiere seguro?: " + CotizadorEnvio.requiereSeguro(p1));
         System.out.println();

@@ -113,7 +113,7 @@ public class Paquete {
      */
     public double calculaPesoVolumetrico() {
         // POR HACER: Implementa la formula de peso volumetrico
-        double pesoVolumetrico = (anchoCm * altoCm * largoCm)/(500);
+        double pesoVolumetrico = (anchoCm * altoCm * largoCm)/(5000);
         return pesoVolumetrico;
     }
 
