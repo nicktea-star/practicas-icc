@@ -50,6 +50,8 @@ public class CotizadorEnvio {
         }
         if (!(esPaqueteValido(p))) {
             return -1.0;
+        } else {
+            return -1.0;
         }
     }
 

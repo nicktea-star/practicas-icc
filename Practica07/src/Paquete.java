@@ -26,15 +26,8 @@ public class Paquete {
     /**
      * El constructor con parámetros devuelve un peso negativo si las dimensiones son inválidas y esto es usado por el verificador de paquetes
      */
-    public void Paquete() {
-        this.codigoAlfanumerico = A;
-        this.pesoKg = 0;
-        this.altoCm = 0;
-        this.anchoCm = 0;
-        this.largoCm = 0;
-        this.valorMonetario = 0;
-    }
-    public void Paquete(String codigoAlfanumerico, double pesoKg, double altoCm, double anchoCm, double largoCm, int valorMonetario){
+
+    public Paquete(String codigoAlfanumerico, double pesoKg, double altoCm, double anchoCm, double largoCm, int valorMonetario){
         this.codigoAlfanumerico = codigoAlfanumerico;
         this.pesoKg = pesoKg;
         if (altoCm < 0 || altoCm > 200) {
@@ -58,6 +51,15 @@ public class Paquete {
         this.valorMonetario = valorMonetario;
     }
 
+    public Paquete() {
+        this.codigoAlfanumerico = "A";
+        this.pesoKg = 0;
+        this.altoCm = 0;
+        this.anchoCm = 0;
+        this.largoCm = 0;
+        this.valorMonetario = 0;
+    }
+
 
     // *** METODOS DE ACCESO Y ASIGNACION ***
     public void setCodigoAlfanumerico(String codigoAlfanumerico) {
@@ -67,28 +69,28 @@ public class Paquete {
         return codigoAlfanumerico;
     }
 
-    public void setPesoKg(String pesoKg) {
+    public void setPesoKg(double pesoKg) {
         this.pesoKg = pesoKg;
     }
     public double getPesoKg() {
         return pesoKg;
     }
 
-    public void setAnchoCm(String anchoCm) {
+    public void setAnchoCm(double anchoCm) {
         this.anchoCm = anchoCm;
     }
     public double getAnchoCm() {
         return anchoCm;
     }
 
-    public void setAltoCm(String altoCm) {
+    public void setAltoCm(double altoCm) {
         this.altoCm = altoCm;
     }
     public double getAltoCm() {
         return altoCm;
     }
 
-    public void setLargoCm(String largoCm) {
+    public void setLargoCm(double largoCm) {
         this.largoCm = largoCm;
     }
     public double getLargoCm() {
