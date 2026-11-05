@@ -77,21 +77,21 @@ public class Paquete {
     public void setAnchoCm(String anchoCm) {
         this.anchoCm = anchoCm;
     }
-    public String getAnchoCm() {
+    public double getAnchoCm() {
         return anchoCm;
     }
 
     public void setAltoCm(String altoCm) {
         this.altoCm = altoCm;
     }
-    public String getAltoCm() {
+    public double getAltoCm() {
         return altoCm;
     }
 
     public void setLargoCm(String largoCm) {
         this.largoCm = largoCm;
     }
-    public String getLargoCm() {
+    public double getLargoCm() {
         return largoCm;
     }
 
