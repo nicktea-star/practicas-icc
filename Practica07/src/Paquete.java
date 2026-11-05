@@ -70,7 +70,10 @@ public class Paquete {
     }
 
 
-    // *** METODOS DE ACCESO Y ASIGNACION ***
+    /**
+     * Los siguientes son métodos getters y setters para los atributos de un <i>ejemplar</i> de la clase paquete.
+     * Los nombres son autoexplicativos.
+     */
     public void setCodigoAlfanumerico(String codigoAlfanumerico) {
         this.codigoAlfanumerico = codigoAlfanumerico;
     }
@@ -80,7 +83,8 @@ public class Paquete {
 
     public void setPesoKg(double pesoKg) {
         this.pesoKg = pesoKg;
-    } public double getPesoKg() {
+    } 
+    public double getPesoKg() {
         return pesoKg;
     }
 
@@ -111,7 +115,6 @@ public class Paquete {
     public int getValorMonetario() {
         return valorMonetario;
     }
-    // *** METODOS CALCULADORES BASE ***
 
     /**
      * Calcula el peso volumetrico del paquete segun el estandar comercial (IATA):
