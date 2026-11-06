@@ -15,7 +15,7 @@
 ---
 
 ## Descripción del proyecto
-[Un programa para automatizar el manejo de paquetes de larga distancia].
+[Un programa para automatizar el manejo de paquetes de larga distancia]. Calcular su tarifa de transporte, determinar si requiere seguro aduanal, y obtener datos sobre la relación entre su peso volumétrico y real.
 
 ---
 
