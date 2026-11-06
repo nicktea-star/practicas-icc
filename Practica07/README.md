@@ -8,14 +8,14 @@
 
 > **Nota de privacidad:** Si publicas tu proyecto en un repositorio público de GitHub, **no es necesario que incluyas esta sección**  en este archivo para proteger tu privacidad. Es suficiente con que tus datos completos estén registrados en el reporte PDF adjuntado directamente en Google Classroom.
 
-- **Nombre completo:** [Escribe aquí tu nombre completo]
-- **Número de cuenta:** [Escribe aquí tu número de cuenta]
-- **Correo institucional:** [tu_correo@ciencias.unam.mx]
+- **Nombre completo:** [Hugo Tonatiuh Carrillo Bonilla]
+- **Número de cuenta:** [320026379  ]
+- **Correo institucional:** [nicktea@ciencias.unam.mx]
 
 ---
 
 ## Descripción del proyecto
-[Escribe aquí con tus propias palabras una breve descripción del problema y de cómo organizaste la solución mediante las clases solicitadas].
+[Un programa para automatizar el manejo de paquetes de larga distancia].
 
 ---
 
@@ -25,19 +25,19 @@ Escribe en las siguientes secciones los comandos que utilizaste desde la termina
 
 ### 1. Compilación
 ```bash
-# Escribe aquí el comando para compilar todas las clases hacia la carpeta bin/
+javac src/* -d bin/
 
 ```
 
 ### 2. Ejecución
 ```bash
-# Escribe aquí el comando para ejecutar el programa de prueba
+java -cp bin/ PruebaPaqueteria
 
 ```
 
 ### 3. Generación de documentación Javadoc
 ```bash
-# Escribe aquí el comando para generar la documentación en la carpeta doc/
+javadoc -d doc/ -noindex -notree -nohelp -nonavbar src/Paquete.java
 
 ```
 
