@@ -90,7 +90,7 @@ public class Punto {
             return null;
         } else {
             double pMX = (this.x + otro.getX()) / 2.0;
-            double pMY = (this.y + otro.gety()) / 2.0;
+            double pMY = (this.y + otro.getY()) / 2.0;
             Punto puntoMedio = new Punto(pMX, pMY);
             return puntoMedio;
         }
@@ -131,6 +131,7 @@ public class Punto {
     public boolean estanAlineados(Punto p2, Punto p3) {
         // POR HACER: Valida que p2 y p3 no sean null.
         // Evalua la condicion de colinealidad
+        return true;
     }
 
     /**
@@ -152,10 +153,11 @@ public class Punto {
      */
     @Override
     public boolean equals(Object obj) {
-        if (obj == null || obj instanceof Punto) {
+        if (obj == null || !(obj instanceof Punto)) {
             return false;
         } else {
-            if (this.distancia(obj) < Maht.pow(10,-6)) {
+            Punto objeto = (Punto) obj;
+            if (this.distancia(objeto) < Math.pow(10,-6)) {
                 return true;
             } else {
                 return false;
