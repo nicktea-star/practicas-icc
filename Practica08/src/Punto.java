@@ -73,7 +73,7 @@ public class Punto {
             return -1.0;
         } else {
             double distanciaX = Math.pow(this.x - otroPunto.getX(),2);
-            double distanciaY = Math.pow(this.x - otroPunto.getY(),2);
+            double distanciaY = Math.pow(this.y - otroPunto.getY(),2);
             return Math.sqrt(distanciaX + distanciaY);
         }
     }
@@ -129,9 +129,16 @@ public class Punto {
      * @return true si los tres puntos estan alineados; false en caso contrario (o si alguno es null).
      */
     public boolean estanAlineados(Punto p2, Punto p3) {
-        // POR HACER: Valida que p2 y p3 no sean null.
-        // Evalua la condicion de colinealidad
-        return true;
+        if (p2 == null || p3 == null) {
+            return false;
+        } else {
+            double productoCruz = ((p2.getX() - this.x )*(p3.getY() - this.y)) - ((p2.getY() - this.y )*(p3.getX() - this.x ));
+            if (Math.abs(productoCruz) < Math.pow(10,-9)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
     }
 
     /**
@@ -140,7 +147,7 @@ public class Punto {
      * @return Cadena con el formato "(x, y)".
      */
     public String toString() {
-        return "("+this.x+","+this.y+")";
+        return "("+this.x+", "+this.y+")";
     }
 
     /**
