@@ -1,8 +1,8 @@
 /**
  * Modela un punto en el plano cartesiano bidimensional (2D).
  * 
- * @author [Tu Nombre Completo]
- * @version 1.0
+ * @author Hugo Tonatiuh Carrillo Bonilla
+ * @version 2.0
  */
 public class Punto {
     // ATRIBUTOS PRIVADOS
