@@ -5,24 +5,18 @@
  * @version 1.0
  */
 public class Punto {
-
-    // Practica 8 (Mini-Lab): Metodos, Mensajes y Objetos como Parametros.
- // Completa las partes marcados con comentarios 'POR HACER'.
-
     // ATRIBUTOS PRIVADOS
-
-    // POR HACER: Declara los dos atributos privados de tipo double:
-    // 'x' para la coordenada horizontal (abscisa) y 'y' para la vertical (ordenada).
-
+    private double x;
+    private double y;
 
     // CONSTRUCTORES
-
     /**
      * Inicializa el punto exactamente en el origen de coordenadas (0.0, 0.0).
      */
     public Punto() {
         // Constructor por omision / defecto.
-        // POR HACER: Asigna 0.0 a las coordenadas x e y
+        this.x = 0;
+        this.y = 0;
     }
 
     /**
@@ -34,15 +28,24 @@ public class Punto {
      */
     public Punto(double x, double y) {
         // Constructor con parametros.
-        // POR HACER: Asigna los parametros a los atributos correspondientes usando 'this'
+        this.x = x;
+        this.y = y;
     }
 
-
-    // POR HACER: Implementa los metodos de consulta y asignacion (getters y setters)
-    
     // METODOS DE CONSULTA Y ASIGNACION (GETTERS Y SETTERS)
-    // 
+    public double getX() {
+        return this.x;
+    }
+    public void setX(double x) {
+        this.x = x;
+    }
 
+    public double getY() {
+        return this.y;
+    }
+    public void setY(double y) {
+        this.y = y;
+    }
 
     // METODOS CALCULADORES [ OPERACIONES GEOMETRICAS ]
     // =========================================================================
@@ -54,7 +57,8 @@ public class Punto {
      * @param deltaY Desplazamiento vertical.
      */
     public void desplazar(double deltaX, double deltaY) {
-        // POR HACER: Suma deltaX a x, y deltaY a y
+        this.x += deltaX;
+        this.y += deltaY;
     }
 
     /**
@@ -65,9 +69,13 @@ public class Punto {
      * @return La distancia euclidiana entre ambos puntos. Si 'otroPunto' es null, regresa -1.0.
      */
     public double distancia(Punto otroPunto) {
-
-        // POR HACER: Valida si 'otroPunto' es null (regresa -1.0 si es null).
-        // En caso contrario, calcula y regresa la distancia euclidiana.
+        if (otroPunto == null) {
+            return -1.0;
+        } else {
+            double distanciaX = Math.pow(this.x - otroPunto.getX(),2);
+            double distanciaY = Math.pow(this.x - otroPunto.getY(),2);
+            return Math.sqrt(distanciaX + distanciaY);
+        }
     }
 
     /**
@@ -78,8 +86,14 @@ public class Punto {
      * @return Una nueva instancia de Punto situada en las coordenadas medias. Si 'otro' es null, regresa null.
      */
     public Punto puntoMedio(Punto otro) {
-        // POR HACER: Valida si 'otro' es null (regresa null).
-        // Calcula xm y ym, e instancia y retorna un NUEVO objeto Punto con dichas coordenadas.
+        if (otro == null) {
+            return null;
+        } else {
+            double pMX = (this.x + otro.getX()) / 2.0;
+            double pMY = (this.y + otro.gety()) / 2.0;
+            Punto puntoMedio = new Punto(pMX, pMY);
+            return puntoMedio;
+        }
     }
 
     /**
@@ -92,7 +106,18 @@ public class Punto {
      *         o 0 si se ubica sobre alguno de los ejes o en el origen.
      */
     public int cuadrante() {
-        // POR HACER: Implementa la clasificacion de cuadrantes con estructuras if-else
+        if (this.x > 0 && this.y > 0) {
+            return 1;
+        } else if (this.x < 0 && this.y > 0) {
+            return 2;
+        } else if (this.x < 0 && this.y < 0) {
+            return 3;
+        }else if (this.x >  0 && this.y < 0) {
+            return 4;
+        } else {
+            return 0;
+        }
+
     }
 
     /**
@@ -114,6 +139,7 @@ public class Punto {
      * @return Cadena con el formato "(x, y)".
      */
     public String toString() {
+        return "("+this.x+","+this.y+")";
     }
 
     /**
@@ -126,7 +152,14 @@ public class Punto {
      */
     @Override
     public boolean equals(Object obj) {
-        // POR HACER: Verifica si obj es null o si no es una instancia de Punto.
-        // Compara por distancia o diferencia absoluta de coordenadas con tolerancia.
+        if (obj == null || obj instanceof Punto) {
+            return false;
+        } else {
+            if (this.distancia(obj) < Maht.pow(10,-6)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
     }
 }
