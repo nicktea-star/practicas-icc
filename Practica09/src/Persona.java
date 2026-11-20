@@ -10,28 +10,101 @@ public class Persona {
 
     // 1. ATRIBUTOS
 
-    /*
-     PARTE 2 (DISENO ABIERTO):
-     Define los atributos privados, constructores, getters/setters y metodos necesarios
-     para modelar a una persona considerando al menos:
-     - Un identificador corto unico
-     - Nombre completo.
-     - Ubicacion (ciudad, alcaldia o codigo postal) para distinguir envios locales de foraneos.
-     */
-
-    // POR HACER: Declara los atributos que consideres necesarios
-    // para representar a la persona (identificador unico, nombre, ubicacion, etc.).
-
+    /** Codigo alfanumerico unico que identifica a un cliente. */
+    private String identificador;
+    /** Nombre legal del cliente. */
+    private String nombreCompleto;
+    /** Codigo de cinco digitos para identificar la <b>colonia</b> de entrega. */
+    private int codigoPostal;
+    /** Valor booleano que determina si el cliente es frecuente o paga una suscripcion. */
+    private boolean clientePreferencial;
 
     // 2. CONSTRUCTORES 
+    /**
+     * Crea un cliente estandar sin datos personales.
+     */
+    public Persona() {
+        this.identificador = "ID-000";
+        this.nombreCompleto = "N.N.N.";
+        this.codigoPostal = 06010 ; // Código postal de la oficina de correos de México
+        this.clientePreferencial = false;
+    }
 
-    // POR HACER: Implementa al menos un constructor por omision y un constructor
-    // con parametros (aplicando validaciones basicas para evitar cadenas nulas o vacias).
+    /**
+     * Constructor con todos los parametros.
+     *
+     * @param identificador Identificador alfanumerico.
+     * @param nombreCompleto Nombre legal.
+     * @param codigoPostal Codigo postal de la colonia (no puede ser negativo).
+     * @param clientePreferencial <tt>true</tt> si es un cliente preferencial, <tt>false</tt> de lo contrario.
+     */
+    public Persona(String identificador, String nombreCompleto, int codigoPostal, boolean clientePreferencial) {
+        this.identificador = identificador;
+        this.nombreCompleto = nombreCompleto;
+        this.codigoPostal = codigoPostal;
+        this.clientePreferencial = clientePreferencial;
+    }
 
-
+    /**
+     * Crea una nueva persona independiente en memoria cuyos atributos iniciales
+     * sean replicas exactas de los de la persona recibida. Sirve para que una misma persona abra más de una cuenta
+     * 
+     * @param otro El paquete original a duplicar. Si es null, inicializa con valores por omision.
+     */
+    public Persona(Persona otra) {
+        if (otra == null) {
+            this.identificador = "ID-000";
+            this.nombreCompleto = "N.N.N.";
+            this.codigoPostal = 06010 ; // Código postal de la oficina de correos de México
+            this.clientePreferencial = false;
+        } else {
+            this.identificador = otra.getIdentificador() + "01";
+            this.nombreCompleto = otra.getNombreCompleto();
+            this.codigoPostal = otra.getCodigoPostal() ; // Código postal de la oficina de correos de México
+            this.clientePreferencial = otra.getClientePreferencial();
+        }
+    }
     // 3. GETTERS, SETTERS Y COLABORACION 
 
-    // POR HACER: Implementa los getters y setters necesarios para tus atributos.
+    /** @return El codigo del cliente. */
+    public String getIdentificador() {
+        return identificador;
+    }
+
+    /** @param identificador El nuevo codigo alfanumerico de identificacion. */
+    public void setIdentificador(String identificador) {
+        this.identificador = identificador;
+    }
+
+    /** @return El nombre legal del cliente. */
+    public String getNombreCompleto() {
+        return nombreCompleto;
+    }
+
+    /** @param nombreCompleto El nuevo nombre del cliente. */
+    public void setNombreCompleto(String nombreCompleto) {
+        this.nombreCompleto = nombreCompleto;
+    }
+
+    /** @return El codigo postal del cliente. */
+    public int getCodigoPostal() {
+        return codigoPostal;
+    }
+
+    /** @param codigoPostal El nuevo codigo postal del cliente. */
+    public void setCodigoPostal(int codigoPostal) {
+        this.codigoPostal = codigoPostal;
+    }
+
+    /** @return Valor booleano que representa si el cliente es preferencial. */
+    public boolean getClientePreferencial() {
+        return clientePreferencial;
+    }
+
+    /** @param codigoPostal El nuevo valor preferencial del cliente. */
+    public void setClientePreferencial(boolean clientePreferencial) {
+        this.clientePreferencial = clientePreferencial;
+    }
 
     /**
      * Determina si esta persona se encuentra en la misma ubicacion (ciudad o codigo postal)

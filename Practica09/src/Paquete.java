@@ -5,8 +5,8 @@
  * volumetrico, peso cobrable, constructor por copia y representacion
  * textual (toString).
  * 
- * @author Tu Nombre / Tu Numero de Cuenta
- * @version 1.0
+ * @author Hugo Tonatiuh Carrillo Bonilla
+ * @version 2.0
  */
 public class Paquete {
 
@@ -246,7 +246,6 @@ public class Paquete {
      */
     @Override
     public String toString() {
-        // POR HACER (Parte 1): Devuelve una representacion en texto legible del paquete.
         String mensaje = "Las especificaciones de su paquete son: \n";
         mensaje += "Código de rastreo: " + this.getCodigoRastreo() + "\n";
         mensaje += "Peso real: " + this.getPeso() + "\n";
