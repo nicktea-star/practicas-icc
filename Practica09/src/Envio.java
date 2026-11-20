@@ -1,3 +1,4 @@
+import java.util.Random;
 /**
  * Modela una Guia de Envio postal relacionando a una Persona remitente, 
  * una Persona destinatario y un objeto Paquete.
@@ -29,6 +30,11 @@ public class Envio {
         return folio;
     }
 
+    /** Todo paquete cuenta con un contador que permite saber cuántos folios de envio se han generado en la sesion. Este metodo permite acceder a este contador. */
+    public static int consultarContador() {
+        return contadorFolios;
+    }
+
     // 1. ATRIBUTOS
 
     /** Cargo adicional fijo en pesos para envios foraneos (entre distintas ubicaciones). */
@@ -58,8 +64,24 @@ public class Envio {
      * @param paquete Paquete fisico amparado por esta guia.
      */
     public Envio(Persona remitente, Persona destinatario, Paquete paquete) {
-        // POR HACER: Inicializa los atributos con validaciones defensivas
-        // (no permitir null y validar el paquete con CotizadorEnvio) y asigna folioGuia.
+        this.folioGuia = generadorFolios();
+        if (remitente != null) {
+            this.remitente = remitente;
+        } else {
+            this.remitente = new Persona();
+        }
+
+        if (destinatario != null) {
+            this.destinatario = destinatario;
+        } else {
+            this.destinatario = new Persona();
+        }
+
+        if (paquete != null && CotizadorEnvio.esPaqueteValido(paquete)) {
+            this.paquete = paquete;
+        } else {
+            this.paquete = new Paquete();
+        }
     }
 
     /**
