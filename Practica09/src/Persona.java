@@ -115,8 +115,11 @@ public class Persona {
      * @return true si otra no es null y ambas comparten la misma ubicacion; false en caso contrario.
      */
     public boolean mismaUbicacionQue(Persona otra) {
-        // POR HACER: Compara la ubicacion de this contra la de 'otra'.
-        return false;
+        if (otra != null && (otra.getCodigoPostal() == this.getCodigoPostal())) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 
@@ -128,8 +131,12 @@ public class Persona {
      * @return true si otra no es null y ambas tienen el mismo identificador; false en caso contrario.
      */
     public boolean esLaMismaPersona(Persona otra) {
-        // POR HACER: Verifica que otra != null y compara el identificador unico.
-        return false;
+
+        if (otra != null && (otra.getIdentificador() == this.getIdentificador())) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 
@@ -141,7 +148,11 @@ public class Persona {
      * @return Cadena con el identificador, nombre y ubicacion de la persona.
      */
     public String toString() {
-        // POR HACER: Sobrescribe toString() con el formato de tu preferencia.
-        return "";
+        String mensaje = "Las especificaciones de su cliente son: \n";
+        mensaje += "Código alfanumerico: " + this.getIdentificador() + "\n";
+        mensaje += "Nombre completo: " + this.getNombreCompleto() + "\n";
+        mensaje += "Codigo Postal: " + this.getCodigoPostal() + "\n";
+        mensaje += "¿Es cliente preferencial?" + this.getClientePreferencial() + "\n";
+        return mensaje;
     }
 }
