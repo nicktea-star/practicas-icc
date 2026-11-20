@@ -102,8 +102,23 @@ public class Paquete {
      * @param otro El paquete original a duplicar. Si es null, inicializa con valores por omision.
      */
     public Paquete(Paquete otro) {
-        // POR HACER: Implementa el constructor por copia asegurando
-        // la independencia de referencias en memoria.
+        if (otro == null) {
+            this.codigoRastreo = "ND-000";
+            this.peso = 1.0;
+            this.alto = 10.0;
+            this.ancho = 10.0;
+            this.largo = 10.0;
+            this.valorDeclarado = 100.0;
+            this.envioExpress = false;
+        } else {
+            this.codigoRastreo = otro.getCodigoRastreo();
+            this.peso = otro.getPeso();
+            this.alto = otro.getAlto();
+            this.ancho = otro.getAncho();
+            this.largo = otro.getLargo();
+            this.valorDeclarado = otro.getValorDeclarado();
+            this.envioExpress = otro.isEnvioExpress();
+        }
     }
 
 
@@ -232,7 +247,14 @@ public class Paquete {
     @Override
     public String toString() {
         // POR HACER (Parte 1): Devuelve una representacion en texto legible del paquete.
-        return "";
+        String mensaje = "Las especificaciones de su paquete son: \n";
+        mensaje += "Código de rastreo: " + this.getCodigoRastreo() + "\n";
+        mensaje += "Peso real: " + this.getPeso() + "\n";
+        mensaje += "Peso volumétrico: " + this.calculaPesoVolumetrico() + "\n";
+        mensaje += "Peso cobrable: " + this.obtenerPesoCobrable() + "\n";
+        mensaje += "Valor declarado" + this.getValorDeclarado() + "\n";
+        mensaje += "Modalidad express" + this.isEnvioExpress() + "\n";
+        return mensaje;
     }
 }
 
