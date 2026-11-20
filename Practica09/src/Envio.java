@@ -11,29 +11,6 @@ import java.util.Random;
  */
 public class Envio {
 
-    private static int contadorFolios = 0;
-
-    private static String letrasAzar() {
-		String s = "";
-		Random r = new Random();
-		for (int i = 0; i < 3; i++) {
-			char c = (char) (r.nextInt(26)+'A');
-			s += c;
-		}
-        return s;
-    }
-
-    private static String generadorFolios() {
-        String folio = "GUIA-";
-        folio += letrasAzar() + "-";
-        folio += ++contadorFolios; // Espero no tener que arrepentirme de este truco sintático y que no se me olvide borrar este comentario para la entrega.
-        return folio;
-    }
-
-    /** Todo paquete cuenta con un contador que permite saber cuántos folios de envio se han generado en la sesion. Este metodo permite acceder a este contador. */
-    public static int consultarContador() {
-        return contadorFolios;
-    }
 
     // 1. ATRIBUTOS
 
@@ -94,25 +71,48 @@ public class Envio {
      * @param nuevoPaquete El nuevo paquete que viajara bajo esta nueva guia.
      */
     public Envio(Envio guiaBase, Paquete nuevoPaquete) {
-        // POR HACER: Implementa la copia de la guia con un nuevo paquete y nuevo folioGuia.
+        this.folioGuia = generadorFolios();
+        this.remitente = guiaBase.getRemitente();
+        this.destinatario = guiaBase.getDestinatario();
+        if (nuevoPaquete != null && CotizadorEnvio.esPaqueteValido(nuevoPaquete)) {
+            this.paquete = nuevoPaquete;
+        } else {
+            this.paquete = new Paquete();
+        }
     }
 
 
     // 3. METODOS DE ACCESO (GETTERS) Y CONSULTA DE GUIAS EMITIDAS
 
     /** @return El folio unico generado para esta guia. */
-    public String getFolioGuia() {
-        // POR HACER
-        return "FOLIO";
+    public String getFolioGuia() {return folioGuia;}
+    public Persona getRemitente() {return remitente;}
+    public Persona getDestinatario() {return remitente;}
+    public Paquete getPaquete() {return paquete;}
+
+    private static int contadorFolios = 0;
+
+    private static String letrasAzar() {
+		String s = "";
+		Random r = new Random();
+		for (int i = 0; i < 3; i++) {
+			char c = (char) (r.nextInt(26)+'A');
+			s += c;
+		}
+        return s;
     }
 
-    // POR HACER: Declara e implementa los metodos de acceso (getters) para remitente, 
-    // destinatario y paquete.
+    private static String generadorFolios() {
+        String folio = "GUIA-";
+        folio += letrasAzar() + "-";
+        folio += ++contadorFolios; // Espero no tener que arrepentirme de este truco sintático y que no se me olvide borrar este comentario para la entrega.
+        return folio;
+    }
 
-    // POR HACER: Declara e implementa el metodo que permita consultar en cualquier
-    // momento cuantas guias de envio se han emitido en total durante la ejecucion,
-    // así como el metodo auxiliar para generar el folio aleatorio + consecutivo.
-
+    /** Todo paquete cuenta con un contador que permite saber cuántos folios de envio se han generado en la sesion. Este metodo permite acceder a este contador. */
+    public static int consultarContador() {
+        return contadorFolios;
+    }
 
     // 4. METODOS DE OPERACION SOBRE LOS OBJETOS AGREGADOS  
 
