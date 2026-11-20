@@ -20,6 +20,10 @@ public class Envio {
     
     // 2. Deduce y declara lo necesario a nivel de clase para llevar el conteo
     //    consecutivo global de guias emitidas y generar automaticamente cada folioGuia.
+    private String folioGuia;
+    private Persona remitente;
+    private Persona destinatario;
+    private Paquete paquete;
 
 
     // 2. CONSTRUCTORES 

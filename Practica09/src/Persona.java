@@ -2,8 +2,8 @@
  * Representa a una persona registrada en el sistema postal, la cual puede actuar
  * como remitente o como destinatario dentro de una guia de envio.
  *  * 
- * @author Tu Nombre / Tu Numero de Cuenta
- * @version 1.0
+ * @author Hugo Tonatiuh Carrillo Bonilla
+ * @version 2.0
  */
 public class Persona {
 
