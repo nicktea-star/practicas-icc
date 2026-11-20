@@ -10,6 +10,25 @@
  */
 public class Envio {
 
+    private static int contadorFolios = 0;
+
+    private static String letrasAzar() {
+		String s = "";
+		Random r = new Random();
+		for (int i = 0; i < 3; i++) {
+			char c = (char) (r.nextInt(26)+'A');
+			s += c;
+		}
+        return s;
+    }
+
+    private static String generadorFolios() {
+        String folio = "GUIA-"
+        folio += letrasAzar() + "-";
+        folio += contadorFolios;
+        return folio;
+    }
+
     // 1. ATRIBUTOS
 
     /** Cargo adicional fijo en pesos para envios foraneos (entre distintas ubicaciones). */
