@@ -23,9 +23,9 @@ public class Envio {
     }
 
     private static String generadorFolios() {
-        String folio = "GUIA-"
+        String folio = "GUIA-";
         folio += letrasAzar() + "-";
-        folio += contadorFolios;
+        folio += ++contadorFolios; // Espero no tener que arrepentirme de este truco sintático y que no se me olvide borrar este comentario para la entrega.
         return folio;
     }
 
