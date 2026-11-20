@@ -123,8 +123,7 @@ public class Envio {
      * @return true si viaja entre distintas ubicaciones; false si es un envio local.
      */
     public boolean esEnvioForaneo() {
-        // POR HACER: Delega la comparacion de ubicacion en los objetos Persona agregados.
-        return false;
+        return !(remitente.getCodigoPostal() == destinatario.getCodigoPostal());
     }
 
     /**
@@ -134,8 +133,7 @@ public class Envio {
      * @return true si remitente y destinatario son la misma persona; false en caso contrario.
      */
     public boolean esAutoEnvio() {
-        // POR HACER: Delega la comparacion de identidad en los objetos Persona agregados.
-        return false;
+        return remitente.getIdentificador() == destinatario.getIdentificador();
     }
 
     /**
@@ -147,7 +145,11 @@ public class Envio {
      */
     public double calcularCostoTotal() {
         // POR HACER: Calcula la tarifa base (con CotizadorEnvio) + cargo foraneo si aplica.
-        return 0.0;
+        if (esEnvioForaneo()) {
+            return CotizadorEnvio.cotizarEnvio(paquete) + CARGO_FORANEO ;
+        } else {
+            return CotizadorEnvio.cotizarEnvio(paquete);
+        }
     }
 
     /**
@@ -159,7 +161,12 @@ public class Envio {
      */
     public boolean cambiarDestinatario(Persona nuevoDestinatario) {
         // POR HACER: Valida que nuevoDestinatario != null y actualiza.
-        return false;
+        if (nuevoDestinatario != null) {
+            destinatario = nuevoDestinatario;
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -172,8 +179,9 @@ public class Envio {
      * @return Nuevo objeto Envio configurado para el retorno al remitente original.
      */
     public Envio generarGuiaRetorno() {
-        // POR HACER: Instancia y devuelve la guia de retorno.
-        return null;
+        paquete.setCodigoRastreo("RET-" + paquete.getCodigoRastreo());
+        Envio retorno = new Envio(destinatario, remitente, paquete);
+        return retorno;
     }
 
     /**
@@ -185,7 +193,19 @@ public class Envio {
      */
     @Override
     public String toString() {
-        // POR HACER: Construye el comprobante de la guia de envio.
-        return "";
+        String s = "Estos son los detalles del envío: \n";
+        s += "Folio: " + folioGuia + "\n";
+        s += "Detalles del remitente: \n";
+        s += remitente.toString();
+        s += "Detalles del destinatario: \n";
+        s += destinatario.toString();
+        s += "Detalles del paquete: \n"
+        s += paquete.toString();
+        if (esAutoEnvio()) {
+            s += "Es un envío personal\n"
+        } else {
+            s += "No es un envío personal\n"
+        }
+        return s;
     }
 }

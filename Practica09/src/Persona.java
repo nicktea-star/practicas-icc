@@ -148,7 +148,7 @@ public class Persona {
      * @return Cadena con el identificador, nombre y ubicacion de la persona.
      */
     public String toString() {
-        String mensaje = "Las especificaciones de su cliente son: \n";
+        String mensaje = "Las especificaciones del cliente son: \n";
         mensaje += "Código alfanumerico: " + this.getIdentificador() + "\n";
         mensaje += "Nombre completo: " + this.getNombreCompleto() + "\n";
         mensaje += "Codigo Postal: " + this.getCodigoPostal() + "\n";
