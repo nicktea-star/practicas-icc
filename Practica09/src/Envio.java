@@ -199,12 +199,12 @@ public class Envio {
         s += remitente.toString();
         s += "Detalles del destinatario: \n";
         s += destinatario.toString();
-        s += "Detalles del paquete: \n"
+        s += "Detalles del paquete: \n";
         s += paquete.toString();
         if (esAutoEnvio()) {
-            s += "Es un envío personal\n"
+            s += "Es un envío personal\n";
         } else {
-            s += "No es un envío personal\n"
+            s += "No es un envío personal\n";
         }
         return s;
     }
