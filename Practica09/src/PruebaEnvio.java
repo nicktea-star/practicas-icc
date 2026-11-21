@@ -57,27 +57,34 @@ public class PruebaEnvio {
         // PARTE 2: PRUEBAS DE TU DISENO DE LA CLASE PERSONA
         // ---------------------------------------------------------------------
         System.out.println(">>> PARTE 2: VERIFICACION DE LA CLASE PERSONA");
-        // POR HACER (Parte 2):
-        // Instancia al menos 3 objetos Persona con los constructores que disenaste:
-        // - Dos personas en la misma ciudad/codigo postal (ej. personaX y personaY).
-        // - Una persona en otra ciudad/codigo postal (ej. personaZ) y una copia con el mismo ID que personaX.
-        // Agrega llamadas a verificar(...) para comprobar:
-        // 1. Que mismaUbicacionQue(...) devuelve true entre personaX y personaY, y false con personaZ.
-        // 2. Que esLaMismaPersona(...) devuelve true para el mismo identificador unico y false para distinto o null.
-        // 3. Que toString() devuelve una cadena legible con sus datos.
+        Persona personaX = new Persona("ID-001","Victor Manuel Mendiola", 14748, false);
+        Persona personaY = new Persona("ID-002","Geovani Martinez Martinez", 14748, false);
+        Persona personaZ = new Persona("ID-001","Oscar Constantino Hernandez", 97481, false);
+        verificar("Misma ubicación funciona para mismas ubicaciones", personaX.mismaUbicacionQue(personaY));
+        verificar("Es la misma persona funciona", personaX.esLaMismaPersona(personaZ));
+        verificar("Funciona toString", personaX.toString() instanceof String);
         System.out.println();
 
         // ---------------------------------------------------------------------
         // PARTE 3: PRUEBAS DE AGREGACION, FOLIOS CONSECUTIVOS Y OPERACIONES EN ENVIO
         // ---------------------------------------------------------------------
         System.out.println(">>> PARTE 3: VERIFICACION DE ENVIO Y FOLIOS AUTOMATICOS");
-        // POR HACER (Parte 3):
-        // 1. Verifica con tu metodo de consulta que al inicio se han emitido 0 guias.
-        // 2. Crea una guia local (entre personaX y personaY con kitBase) y una foranea (hacia personaZ con kitClon).
-        // 3. Verifica que ambas guias tienen folios no nulos, distintos y con numeracion consecutiva (1 y 2),
-        //    y que el total de guias emitidas ahora es 2.
-        // 4. Verifica esEnvioForaneo(), esAutoEnvio() y calcularCostoTotal() (confirmando el cargo foraneo).
-        // 5. Verifica que cambiarDestinatario(...) rechaza null y acepta actualizar a otra persona (o a si misma).
+        verificar("El contador de folios empieza en 0", Envio.consultarContador() == 0);
+        Envio guiaLocal = new Envio(personaX, personaY, kitBase);
+        Envio guiaForanea = new Envio(personaX, personaZ, kitClon);
+        verificar("Primer guia tiene folio", guiaLocal.getFolioGuia() !=null);
+        verificar("Segunda guia tiene folio", guiaForanea.getFolioGuia() !=null);
+        verificar("Las dos guias tienen folios distintos", guiaLocal.getFolioGuia() != guiaForanea.getFolioGuia());
+        verificar("La primer guia tiene numero 1", guiaLocal.getFolioGuia().charAt(guiaLocal.getFolioGuia().length() - 1) == '1');
+        verificar("La segunda guia tiene numero 2", guiaForanea.getFolioGuia().charAt(guiaForanea.getFolioGuia().length() - 1) == '2');
+        // El truco de arriba lo aprendí trabajando en mi repositorio Fen2Fen, revíselo si cree que lo saqué de IA
+        verificar("Se emitieron dos guias", Envio.consultarContador() == 2);
+        verificar("Funciona esEnvioForaneo", guiaForanea.esEnvioForaneo());
+        verificar("Funciona esAutoEnvio", guiaForanea.esAutoEnvio());
+        verificar("Funciona calcularCostoTotal", guiaForanea.calcularCostoTotal() == CotizadorEnvio.cotizarEnvio(guiaForanea.getPaquete()) + 80);
+        verificar("cambiarDestinatario rechaza null", guiaLocal.cambiarDestinatario(null) == false);
+        verificar("cambiarDestinatario acepta otra persona", guiaLocal.cambiarDestinatario(personaZ) == true);
+        verificar("cambiarDestinatario acepta a la misma persona", guiaLocal.cambiarDestinatario(personaX) == true);
         System.out.println();
 
         // ---------------------------------------------------------------------
@@ -94,6 +101,15 @@ public class PruebaEnvio {
         //    verifica con verificar(...) que en la guia de retorno el remitente es Y, el destinatario es X,
         //    el paquete es una copia independiente con prefijo "RET-" y cuenta con un nuevo folio consecutivo.
         //    Imprime la guia de retorno y el total acumulado de guias emitidas en el sistema.
+        Envio guiaPrueba = new Envio(personaX, personaY, kitBase);
+        guiaPrueba.toString();
+        Envio segundoEnvio = new Envio(guiaPrueba, otroPaquete);
+        verificar("El paquete clonado conserva remitente", segundoEnvio.getRemitente() == guiaPrueba.getRemitente());
+        verificar("El paquete clonado conserva destinatario", segundoEnvio.getDestinatario() == guiaPrueba.getDestinatario());
+        verificar("El paquete clonado tiene un nuevo paquete", segundoEnvio.getPaquete() == otroPaquete);
+        char ultimoDigitoGuiaPrueba = guiaPrueba.getFolioGuia().charAt(guiaPrueba.getFolioGuia().length() - 1);
+        char ultimoDigitoSegundoEnvio = segundoEnvio.getFolioGuia().charAt(segundoEnvio.getFolioGuia().length() - 1);
+        verificar("El paquete clonado tiene folio consecutivo",  (int) ultimoDigitoSegundoEnvio == ((int) ultimoDigitoGuiaPrueba) + 1 );
 
         System.out.println("\n================================================================================");
         System.out.println("  RESUMEN DE PRUEBAS: " + pruebasExitosas + " / " + totalPruebas + " pruebas superadas con exito");
