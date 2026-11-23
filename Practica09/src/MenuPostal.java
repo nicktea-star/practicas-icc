@@ -41,18 +41,15 @@ public class MenuPostal {
                     break;
 
                 case "2":
-                    // POR HACER: Llama a tu metodo auxiliar para clonar guiaActiva con un nuevo paquete.
-                    System.out.println("[Por hacer: Opcion 2 - Clonar guia activa]");
+                    guiaActiva = clonarGuiaActiva(sc, guiaActiva);
                     break;
 
                 case "3":
-                    // POR HACER: Llama a tu metodo auxiliar para clonar el paquete hacia otro destinatario.
-                    System.out.println("[Por hacer: Opcion 3 - Enviar paquete clonado]");
+                    guiaActiva = clonarCambioDestinatario(sc, guiaActiva);
                     break;
 
                 case "4":
-                    // POR HACER: Llama a tu metodo auxiliar para generar la guia de retorno.
-                    System.out.println("[Por hacer: Opcion 4 - Generar guia de retorno]");
+                    guiaActiva = clonarGuiaRetorno(sc, guiaActiva);
                     break;
 
                 case "5":
@@ -131,10 +128,7 @@ public class MenuPostal {
      * @return Nueva instancia de Persona con los datos capturados.
      */
     private static Persona capturarPersona(Scanner sc) {
-        // POR HACER (Parte 4):
-        // Pide al usuario por consola los atributos que definiste en tu clase Persona
-        // (por ejemplo: identificador corto, nombre completo y ciudad/ubicacion)
-        // y devuelve la instancia creada.
+        // TODO: Implementar leerCodigoPostal
         System.out.println("\n--- Captura de datos de una Persona ---");
         System.out.print("  Codigo de identificacion (ej. ID-001): ");
         String identificador = sc.nextLine();
@@ -142,10 +136,11 @@ public class MenuPostal {
         String nombreCompleto = sc.nextLine();
         System.out.print("  Codigo postal (ej. 01001): ");
         int codigoPostal = sc.nextInt();
-        System.out.print("  Indique si es cliente preferencial (true || false): ");
-        boolean clientePreferencial = sc.nextBoolean();
+        sc.nextLine();
+        System.out.print("  Indique si es cliente preferencial (s/n): ");
+        boolean clientePreferencial = sc.nextLine().trim().equalsIgnoreCase("s");
         Persona persona = new Persona(identificador, nombreCompleto, codigoPostal, clientePreferencial);
-        return null;
+        return persona;
     }
 
     /**
@@ -176,7 +171,65 @@ public class MenuPostal {
         }
     }
 
-    // POR HACER (Parte 4):
-    // Declara e implementa aqui tus propios metodos auxiliares (private static)
-    // para resolver las opciones 2, 3, 4 y 5 del menu (validando cuando guiaActiva == null).
+    /**
+     * Opcion 2 : Clona la guia actualmente en memoria
+     * y captura un nuevo paquete.
+     * 
+     * @param sc Lector de entrada estandar.
+     * @param guiaActiva Envio en memoria.
+     * @return Una nueva guia de envio clonada.
+     */
+    private static Envio clonarGuiaActiva(Scanner sc, Envio guiaActiva) {
+        if (guiaActiva == null) {
+            System.out.println("Aviso: No hay ninguna guia activa.");
+            System.out.println("Se le generará una guia generica con un paquete por defecto.");
+            Envio clonGuiaActiva = new Envio(null,null,null);
+            return clonGuiaActiva;
+        } else {
+            Paquete paquete = capturarPaquete(sc);
+            Envio clonGuiaActiva = new Envio(guiaActiva, paquete);
+            return clonGuiaActiva;
+        }
+    }
+
+    /**
+     * Opcion 3 : Clona la guia actualmente en memoria
+     * y captura un nuevo destinatario.
+     * 
+     * @param sc Lector de entrada estandar.
+     * @param guiaActiva Envio en memoria.
+     * @return Una nueva guia de envio clonada.
+     */
+    private static Envio clonarCambioDestinatario(Scanner sc, Envio guiaActiva) {
+        if (guiaActiva == null) {
+            System.out.println("Aviso: No hay ninguna guia activa.");
+            System.out.println("Se le generará una guia generica con un paquete por defecto.");
+            Envio clonCambioDestinatario = new Envio(null,null,null);
+            return clonCambioDestinatario;
+        } else {
+            Envio clonCambioDestinatario = new Envio(guiaActiva, guiaActiva.getPaquete());
+            System.out.println("\n--- Captura de datos del DESTINATARIO ---");
+            clonCambioDestinatario.cambiarDestinatario(capturarPersona(sc));
+            return clonCambioDestinatario;
+        }
+    }
+
+    /**
+     * Opcion 4 : Genera una nueva guia que invierte los roles
+     * de destinatario y remitente.
+     * 
+     * @param sc Lector de entrada estandar.
+     * @param guiaActiva Envio en memoria.
+     * @return Una nueva guia de envio clonada.
+     */
+    private static Envio clonarGuiaRetorno(Scanner sc, Envio guiaActiva) {
+        if (guiaActiva == null) {
+            System.out.println("Aviso: No hay ninguna guia activa.");
+            System.out.println("Se le generará una guia generica con un paquete por defecto.");
+            Envio clonGuiaRetorno = new Envio(null,null,null);
+            return clonGuiaRetorno;
+        } else {
+            return guiaActiva.generarGuiaRetorno();
+        }
+    }
 }
