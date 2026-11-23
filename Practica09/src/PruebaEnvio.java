@@ -16,6 +16,16 @@ public class PruebaEnvio {
     private static int pruebasExitosas = 0;
     private static int totalPruebas = 0;
 
+    // Metodo auxiliar para checar si dos envios tienen folios consecutivos.
+    private static boolean sonFoliosConsecutivos(Envio primero, Envio segundo){
+        char ultimoDigitoPrimero = primero.getFolioGuia().charAt(primero.getFolioGuia().length() - 1);
+        char ultimoDigitoSegundo = segundo.getFolioGuia().charAt(segundo.getFolioGuia().length() - 1);
+        if ((int) ultimoDigitoSegundo == (int) ultimoDigitoPrimero + 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     /**
      * Metodo principal de verificacion y simulacion no interactiva.
      * 
@@ -107,12 +117,11 @@ public class PruebaEnvio {
         verificar("El paquete clonado conserva remitente", segundoEnvio.getRemitente() == guiaPrueba.getRemitente());
         verificar("El paquete clonado conserva destinatario", segundoEnvio.getDestinatario() == guiaPrueba.getDestinatario());
         verificar("El paquete clonado tiene un nuevo paquete", segundoEnvio.getPaquete() == otroPaquete);
-        char ultimoDigitoGuiaPrueba = guiaPrueba.getFolioGuia().charAt(guiaPrueba.getFolioGuia().length() - 1);
-        char ultimoDigitoSegundoEnvio = segundoEnvio.getFolioGuia().charAt(segundoEnvio.getFolioGuia().length() - 1);
-        verificar("El paquete clonado tiene folio consecutivo",  (int) ultimoDigitoSegundoEnvio == ((int) ultimoDigitoGuiaPrueba) + 1 );
+        verificar("El paquete clonado tiene folio consecutivo",  sonFoliosConsecutivos(guiaPrueba, segundoEnvio) );
         Envio retorno = guiaPrueba.generarGuiaRetorno();
         verificar("El remitente del retorno es Y", retorno.getRemitente() == personaY);
         verificar("El destinatario del retorno es X", retorno.getDestinatario() == personaX);
+        verificar("El paquete del retorno es una copia independiente", guiaPrueba.getPaquete() != retorno.getPaquete());
 
         System.out.println("\n================================================================================");
         System.out.println("  RESUMEN DE PRUEBAS: " + pruebasExitosas + " / " + totalPruebas + " pruebas superadas con exito");

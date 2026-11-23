@@ -179,8 +179,9 @@ public class Envio {
      * @return Nuevo objeto Envio configurado para el retorno al remitente original.
      */
     public Envio generarGuiaRetorno() {
-        Envio retorno = new Envio(destinatario, remitente, paquete);
-        paquete.setCodigoRastreo("RET-" + paquete.getCodigoRastreo());
+        Paquete paqueteRetorno = new Paquete(paquete);
+        paqueteRetorno.setCodigoRastreo("RET-" + paqueteRetorno.getCodigoRastreo());
+        Envio retorno = new Envio(destinatario, remitente, paqueteRetorno);
         return retorno;
     }
 
