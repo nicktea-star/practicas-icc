@@ -87,7 +87,7 @@ public class Envio {
     /** @return El folio unico generado para esta guia. */
     public String getFolioGuia() {return folioGuia;}
     public Persona getRemitente() {return remitente;}
-    public Persona getDestinatario() {return remitente;}
+    public Persona getDestinatario() {return destinatario;}
     public Paquete getPaquete() {return paquete;}
 
     private static int contadorFolios = 0;
@@ -179,8 +179,8 @@ public class Envio {
      * @return Nuevo objeto Envio configurado para el retorno al remitente original.
      */
     public Envio generarGuiaRetorno() {
-        paquete.setCodigoRastreo("RET-" + paquete.getCodigoRastreo());
         Envio retorno = new Envio(destinatario, remitente, paquete);
+        paquete.setCodigoRastreo("RET-" + paquete.getCodigoRastreo());
         return retorno;
     }
 

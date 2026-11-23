@@ -110,6 +110,9 @@ public class PruebaEnvio {
         char ultimoDigitoGuiaPrueba = guiaPrueba.getFolioGuia().charAt(guiaPrueba.getFolioGuia().length() - 1);
         char ultimoDigitoSegundoEnvio = segundoEnvio.getFolioGuia().charAt(segundoEnvio.getFolioGuia().length() - 1);
         verificar("El paquete clonado tiene folio consecutivo",  (int) ultimoDigitoSegundoEnvio == ((int) ultimoDigitoGuiaPrueba) + 1 );
+        Envio retorno = guiaPrueba.generarGuiaRetorno();
+        verificar("El remitente del retorno es Y", retorno.getRemitente() == personaY);
+        verificar("El destinatario del retorno es X", retorno.getDestinatario() == personaX);
 
         System.out.println("\n================================================================================");
         System.out.println("  RESUMEN DE PRUEBAS: " + pruebasExitosas + " / " + totalPruebas + " pruebas superadas con exito");
