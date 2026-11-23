@@ -6,8 +6,8 @@ import java.util.Random;
  * Cada guia recibe automaticamente un folio unico al momento de crearse
  * (compuesto por caracteres aleatorios y un numero consecutivo global).
  * 
- * @author Tu Nombre / Tu Numero de Cuenta
- * @version 1.0
+ * @author Hugo Tonatiuh Carrillo Bonilla
+ * @version 2.0
  */
 public class Envio {
 

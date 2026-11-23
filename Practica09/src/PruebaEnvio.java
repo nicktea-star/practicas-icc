@@ -3,8 +3,8 @@ import java.util.regex.Pattern;
  * Programa de pruebas y simulacion para las Guias de Envios
  * Ejecuta pruebas automatizadas.
  * 
- * @author Tu Nombre / Tu Numero de Cuenta
- * @version 1.0
+ * @author Hugo Tonatiuh Carrillo Bonilla
+ * @version 2.0
  */
 public class PruebaEnvio {
 
