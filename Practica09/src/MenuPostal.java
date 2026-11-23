@@ -120,6 +120,20 @@ public class MenuPostal {
         return valorPorOmision;
     }
 
+    private static int leerCodigoPostal(Scanner sc) {
+        if (sc.hasNextInt()) {
+            int valor = sc.nextInt();
+            sc.nextLine();
+            if (valor > 0 && Integer.toString(valor).length() == 5) {
+                return valor;
+            } else {
+                return 06010;
+            }
+        }
+        sc.nextLine();
+        return 06010;
+    }
+
     /**
      * Solicita por consola los datos de una Persona de acuerdo con los atributos
      * que disenaste en Persona.java y devuelve el objeto instanciado.
@@ -135,8 +149,7 @@ public class MenuPostal {
         System.out.print("  Nombre legal (ej. Oscar Constatino Hernandez): ");
         String nombreCompleto = sc.nextLine();
         System.out.print("  Codigo postal (ej. 01001): ");
-        int codigoPostal = sc.nextInt();
-        sc.nextLine();
+        int codigoPostal = leerCodigoPostal(sc);
         System.out.print("  Indique si es cliente preferencial (s/n): ");
         boolean clientePreferencial = sc.nextLine().trim().equalsIgnoreCase("s");
         Persona persona = new Persona(identificador, nombreCompleto, codigoPostal, clientePreferencial);
