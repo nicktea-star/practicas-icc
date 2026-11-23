@@ -1,3 +1,4 @@
+import java.util.regex.Pattern;
 /**
  * Programa de pruebas y simulacion para las Guias de Envios
  * Ejecuta pruebas automatizadas.
@@ -122,6 +123,13 @@ public class PruebaEnvio {
         verificar("El remitente del retorno es Y", retorno.getRemitente() == personaY);
         verificar("El destinatario del retorno es X", retorno.getDestinatario() == personaX);
         verificar("El paquete del retorno es una copia independiente", guiaPrueba.getPaquete() != retorno.getPaquete());
+        verificar("El paquete tiene prefijo RET-", Pattern.matches("RET-.*",retorno.getPaquete().getCodigoRastreo() ));
+        verificar("El retorno tiene un folio consecutivo", retorno.getFolioGuia().charAt(retorno.getFolioGuia().length() - 1) == '5');
+        System.out.println();
+        System.out.println(retorno.toString());
+        System.out.println();
+        System.out.printf("Total de guias emitidas por el sistema: %d %n",Envio.consultarContador());
+        System.out.println();
 
         System.out.println("\n================================================================================");
         System.out.println("  RESUMEN DE PRUEBAS: " + pruebasExitosas + " / " + totalPruebas + " pruebas superadas con exito");
