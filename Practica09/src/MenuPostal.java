@@ -135,6 +135,16 @@ public class MenuPostal {
         // Pide al usuario por consola los atributos que definiste en tu clase Persona
         // (por ejemplo: identificador corto, nombre completo y ciudad/ubicacion)
         // y devuelve la instancia creada.
+        System.out.println("\n--- Captura de datos de una Persona ---");
+        System.out.print("  Codigo de identificacion (ej. ID-001): ");
+        String identificador = sc.nextLine();
+        System.out.print("  Nombre legal (ej. Oscar Constatino Hernandez): ");
+        String nombreCompleto = sc.nextLine();
+        System.out.print("  Codigo postal (ej. 01001): ");
+        int codigoPostal = sc.nextInt();
+        System.out.print("  Indique si es cliente preferencial (true || false): ");
+        boolean clientePreferencial = sc.nextBoolean();
+        Persona persona = new Persona(identificador, nombreCompleto, codigoPostal, clientePreferencial);
         return null;
     }
 
