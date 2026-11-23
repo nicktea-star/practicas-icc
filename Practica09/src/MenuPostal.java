@@ -3,8 +3,8 @@ import java.util.Scanner;
 /**
  * Programa interactivo por consola para gestionar guias de envio (Parte 4).
  * 
- * @author Tu Nombre / Tu Numero de Cuenta
- * @version 1.0
+ * @author Hugo Tonatiuh Carrillo Bonilla
+ * @version 2.0
  */
 public class MenuPostal {
 
