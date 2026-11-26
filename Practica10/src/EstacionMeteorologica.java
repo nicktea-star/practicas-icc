@@ -8,7 +8,7 @@
 public class EstacionMeteorologica {
 
     private String nombreEstacion;
-    private double[] temperaturas
+    private double[] temperaturas;
 
     // CONSTRUCTORES
 
@@ -27,8 +27,8 @@ public class EstacionMeteorologica {
 
     // POR HACER (Parte 5.3): Redacta la documentacion Javadoc para este constructor y los metodos restantes.
     public EstacionMeteorologica(String nombreEstacion, int numDias) {
-        (nombreEstacion.length() > 0) ? this.nombreEstacion = nombreEstacion : this.nombreEstacion = "Estacion UNAM";
-        (numDias > 0) ? this.numDias = numDias : this.nombreEstacion = 7;
+        this.nombreEstacion = (nombreEstacion.length() > 0) ? nombreEstacion : "Estacion UNAM";
+        this.temperaturas = (numDias > 0) ?  new double[numDias] :  new double[7];
         for (int i = 0; i < temperaturas.length; i++) {
             this.temperaturas[i] = -300.0;
         }
@@ -43,7 +43,7 @@ public class EstacionMeteorologica {
 
     public int getNumeroDias() {
         // POR HACER (1.3)
-        return this.numDias.length;
+        return this.temperaturas.length;
     }
 
     /**
@@ -56,7 +56,7 @@ public class EstacionMeteorologica {
      * @return true si el dato fue valido y se almaceno; false en caso contrario.
      */
     public boolean registrarTemperatura(int indiceDia, double temp) {
-        if (indiceDia >= 0 && indiceDia < numDias.length && temp >= -90.0 && temp <= 60.0) {
+        if (indiceDia >= 0 && indiceDia < temperaturas.length && temp >= -90.0 && temp <= 60.0) {
             temperaturas[indiceDia] = temp;
             return true;
         } else {
@@ -65,7 +65,7 @@ public class EstacionMeteorologica {
     }
 
     public double obtenerTemperatura(int indiceDia) {
-        (0 <= indiceDia && indiceDia < temperaturas.length) ? return temperaturas[indiceDia] : return -300.0 ;
+        return (0 <= indiceDia && indiceDia < temperaturas.length) ? temperaturas[indiceDia] : -300.0 ;
     }
 
     // METODOS ESTADISTICOS (PARTE 2)
