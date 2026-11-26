@@ -117,16 +117,16 @@ public class EstacionMeteorologica {
     // CONVERSION DE ESCALAS (PARTE 3)
 
     public double convertirAFahrenheit(double celsius) {
-        // POR HACER (3.2): Decide si este metodo sera de instancia o static y realiza la conversion.
-        return 0.0;
+        return (celsius * 1.8) + 32.0;
     }
 
-    // POR HACER (3.3): Una vez creado Escala.java, descomenta y completa el metodo sobrecargado:
-    /*
     public double calcularPromedio(Escala escala) {
-        return 0.0;
+        switch (escala) {
+        case FAHRENHEIT:
+            return convertirAFahrenheit(calcularPromedio());
+        }
+        return calcularPromedio();
     }
-    */
 
     // RETOS (PARTE 4)
 

@@ -111,7 +111,7 @@ public class PruebaEstacionMeteorologica {
 
         // POR HACER (Parte 3.3): Descomenta el siguiente bloque una vez creada Escala.java
         // y sobrecargado el metodo calcularPromedio(Escala):
-        /*
+        
         verificar("calcularPromedio(Escala.CELSIUS) devuelve 19.8",
                   Math.abs(estCU.calcularPromedio(Escala.CELSIUS) - 19.8) < 1e-9,
                   "Obtenido: " + estCU.calcularPromedio(Escala.CELSIUS));
@@ -119,7 +119,7 @@ public class PruebaEstacionMeteorologica {
         verificar("calcularPromedio(Escala.FAHRENHEIT) devuelve 67.64",
                   Math.abs(estCU.calcularPromedio(Escala.FAHRENHEIT) - 67.64) < 1e-9,
                   "Esperado: 67.64, Obtenido: " + estCU.calcularPromedio(Escala.FAHRENHEIT));
-        */
+       
 
         // ---------------------------------------------------------------------
         // 4. Retos (Primera Helada y Mayor Cambio Consecutivo)
