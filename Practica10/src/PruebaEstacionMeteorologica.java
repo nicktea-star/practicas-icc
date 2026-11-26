@@ -3,7 +3,7 @@
  * en la Mini-Practica 10 (Arreglos de Tipos Primitivos).
  *
  * @author ICC 2027-1
- * @version 1.0
+ * @version 2.0
  */
 public class PruebaEstacionMeteorologica {
 
@@ -175,9 +175,15 @@ public class PruebaEstacionMeteorologica {
         // 5. Prueba Personalizada (Parte 5.2)
         // ---------------------------------------------------------------------
         System.out.println(">>> 5. PRUEBA PERSONALIZADA:");
-        // POR HACER (5.2): Crea una EstacionMeteorologica con tu primer apellido,
-        // registra al menos 5 temperaturas (incluyendo al menos una negativa),
-        // e imprime su resumen toString() y su promedio en Celsius y Fahrenheit.
+        EstacionMeteorologica pruebaPropia = new EstacionMeteorologica("Carrillo", 5);
+        pruebaPropia.registrarTemperatura(0, -15);
+        pruebaPropia.registrarTemperatura(1, 20);
+        pruebaPropia.registrarTemperatura(2, 40);
+        pruebaPropia.registrarTemperatura(3, 0);
+        pruebaPropia.registrarTemperatura(4, -5);
+        System.out.println(pruebaPropia.toString());
+        System.out.printf("Temperatura promedio en celsius: %.2f %n",pruebaPropia.calcularPromedio());
+        System.out.printf("Temperatura promedio en fahrenheit: %.2f %n",pruebaPropia.calcularPromedio(Escala.FAHRENHEIT));
     }
 
     private static void verificar(String descripcion, boolean condicion, String detalle) {

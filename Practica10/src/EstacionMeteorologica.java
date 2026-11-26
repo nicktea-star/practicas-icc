@@ -2,8 +2,8 @@
  * Modela una estacion meteorologica universitaria que almacena y procesa
  * las temperaturas diarias (en grados Celsius) de un periodo de monitoreo.
  *
- * @author [Tu Nombre Completo]
- * @version 1.0
+ * @author Hugo Tonatiuh Carrillo Bonilla
+ * @version 2.0
  */
 public class EstacionMeteorologica {
 
@@ -25,7 +25,12 @@ public class EstacionMeteorologica {
         }
     }
 
-    // POR HACER (Parte 5.3): Redacta la documentacion Javadoc para este constructor y los metodos restantes.
+    /**
+     * Inicializa la estacion con el nombre indicado
+     * y reserva espacio para los días que el usuario desee
+     * @param nombreEstacion El nombre de la estacion meteorologica
+     * @param numDias El numero de dias a reservar para la estacion
+     */
     public EstacionMeteorologica(String nombreEstacion, int numDias) {
         if (nombreEstacion != null && nombreEstacion.length() > 0)  {
             this.nombreEstacion = nombreEstacion;
@@ -41,12 +46,10 @@ public class EstacionMeteorologica {
     // METODOS DE CONSULTA Y REGISTRO (PARTE 1)
 
     public String getNombreEstacion() {
-        // POR HACER (1.3)
         return this.nombreEstacion;
     }
 
     public int getNumeroDias() {
-        // POR HACER (1.3)
         return this.temperaturas.length;
     }
 
@@ -68,12 +71,26 @@ public class EstacionMeteorologica {
         }
     }
 
+    /**
+     * Devuelve la temperatura en Celsius de un día
+     * Porque accede a un arreglo,
+     * reste uno mentalmente al dia que quiera acceder
+     *
+     * @param indiceDia Posicion del dia para obtener la temperatura
+     * @return temperatura del dia si era un dia valido,
+     * cero absoluto de lo contrario
+     */
     public double obtenerTemperatura(int indiceDia) {
         return (0 <= indiceDia && indiceDia < temperaturas.length) ? temperaturas[indiceDia] : -300.0 ;
     }
 
     // METODOS ESTADISTICOS (PARTE 2)
 
+    /**
+     * Calcula el promedio de todas las temperaturas registradas
+     *
+     * @return El promedio de todos los dias
+     */
     public double calcularPromedio() {
         double promedio = 0;
         for (int i = 0; i < temperaturas.length; i++) {
@@ -83,6 +100,11 @@ public class EstacionMeteorologica {
         return promedio;
     }
 
+    /**
+     * Regresa la temperatura maxima registrada en todos los dias
+     *
+     * @return El promedio de todos los dias
+     */
     public double obtenerMaxima() {
         double maxima = -300.0;
         for (int i = 0; i < temperaturas.length; i++) {
@@ -95,6 +117,15 @@ public class EstacionMeteorologica {
         return maxima;
     }
 
+    /**
+     * Devuelve la cantidad de dias que tuvieron una temperatura mayor o 
+     * igual a un umbral indicado
+     *
+     * @param umbral Temperatura minima que se considera para los dias calurosos
+     * @return La cantidad de dias que tuvieron una temperatura mayor
+     * o superior al umbral
+     * cero absoluto de lo contrario
+     */
     public int contarDiasCalurosos(double umbral) {
         int contador = 0;
         for (int i = 0; i < temperaturas.length; i++) {
@@ -119,10 +150,24 @@ public class EstacionMeteorologica {
 
     // CONVERSION DE ESCALAS (PARTE 3)
 
+    /**
+     * Convierte una temperatura en double a Celsius
+     *
+     * @param celsius Temperatura a convertir
+     * @return La temperatura en Celsius
+     */
     public double convertirAFahrenheit(double celsius) {
         return (celsius * 1.8) + 32.0;
     }
 
+    /**
+     * Este metodo supersede para devolver el promedio de la
+     * temperatura de los dias medidos en Fahrenheit o en Celsius
+     * segun se indique
+     *
+     * @param escala Escala en la que se quiera obtener el promedio
+     * @return La temperatura en en Fahrenheit o en Celsius segun sea el caso
+     */
     public double calcularPromedio(Escala escala) {
         switch (escala) {
         case FAHRENHEIT:
@@ -133,6 +178,12 @@ public class EstacionMeteorologica {
 
     // RETOS (PARTE 4)
 
+    /**
+     * Regresa el indice del primer dia en el que se detecto una temperatura
+     * menor al punto de fusion del agua
+     *
+     * @return Indice del dia, -1 si nunca sucedio
+     */
     public int buscarPrimerDiaHelada() {
         for (int i = 0; i < temperaturas.length; i++) {
             if (temperaturas[i] <= 0.0) {
@@ -142,6 +193,11 @@ public class EstacionMeteorologica {
         return -1;
     }
 
+    /**
+     * Regresa el mayor salto de temperatura entre dos dias consecutivos
+     *
+     * @return El mayor salto
+     */
     public double mayorCambioConsecutivo() {
         double maximo = 0;
         double local;
