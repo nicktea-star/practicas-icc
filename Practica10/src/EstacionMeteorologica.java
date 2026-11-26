@@ -131,12 +131,25 @@ public class EstacionMeteorologica {
     // RETOS (PARTE 4)
 
     public int buscarPrimerDiaHelada() {
-        // POR HACER (4.1): Devuelve el indice del primer dia con temp <= 0.0, o -1 si no hubo heladas.
+        for (int i = 0; i < temperaturas.length; i++) {
+            if (temperaturas[i] <= 0.0) {
+                return i;
+            }
+        }
         return -1;
     }
 
     public double mayorCambioConsecutivo() {
-        // POR HACER (4.2): Calcula la mayor variacion |t[i+1] - t[i]| entre dias seguidos.
-        return 0.0;
+        double maximo = 0;
+        double local;
+        if (temperaturas.length >= 2) {
+            for (int i = 0; i < temperaturas.length -1; i++) {
+                local = Math.abs(temperaturas[i+1]-temperaturas[i]);
+                maximo = (local > maximo) ? local : maximo;
+            }
+            return maximo;
+        } else {
+            return 0.0;
+        }
     }
 }
