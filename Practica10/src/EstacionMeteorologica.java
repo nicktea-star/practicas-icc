@@ -112,9 +112,8 @@ public class EstacionMeteorologica {
         String s = "";
         s += "Estacion: " + nombreEstacion + " | ";
         s += "Dias: " + temperaturas.length + " | ";
-        s += "Promedio: " + this.calcularPromedio() + " C " + " | ";
-        s += "Maxima: " + this.obtenerMaxima() + " C " + " | ";
-        s += "\n";
+        s += "Promedio: " + this.calcularPromedio() + " C" + " | ";
+        s += "Maxima: " + this.obtenerMaxima() + " C";
         return s;
     }
 
