@@ -27,7 +27,11 @@ public class EstacionMeteorologica {
 
     // POR HACER (Parte 5.3): Redacta la documentacion Javadoc para este constructor y los metodos restantes.
     public EstacionMeteorologica(String nombreEstacion, int numDias) {
-        this.nombreEstacion = (nombreEstacion.length() > 0) ? nombreEstacion : "Estacion UNAM";
+        if (nombreEstacion != null && nombreEstacion.length() > 0) ? ) {
+            this.nombreEstacion = nombreEstacion;
+        } else {
+            this.nombreEstacion = "Estacion UNAM";
+        }
         this.temperaturas = (numDias > 0) ?  new double[numDias] :  new double[7];
         for (int i = 0; i < temperaturas.length; i++) {
             this.temperaturas[i] = -300.0;
