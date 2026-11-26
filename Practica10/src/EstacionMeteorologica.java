@@ -71,25 +71,47 @@ public class EstacionMeteorologica {
     // METODOS ESTADISTICOS (PARTE 2)
 
     public double calcularPromedio() {
-        // POR HACER (2.1): Suma todas las temperaturas con un ciclo for y calcula el promedio.
-        return 0.0;
+        double promedio = 0;
+        for (int i = 0; i < temperaturas.length; i++) {
+            promedio += temperaturas[i];
+        }
+        promedio /= temperaturas.length;
+        return promedio;
     }
 
     public double obtenerMaxima() {
-        // POR HACER (2.2): Recorre el arreglo y encuentra el valor maximo.
-        return 0.0;
+        double maxima = -300.0;
+        for (int i = 0; i < temperaturas.length; i++) {
+            if (temperaturas[i] > maxima) {
+                maxima = temperaturas[i];
+            } else {
+                continue;
+            }
+        }
+        return maxima;
     }
 
     public int contarDiasCalurosos(double umbral) {
-        // POR HACER (2.3): Cuenta cuantos dias superan estrictamente 'umbral'.
-        return 0;
+        int contador = 0;
+        for (int i = 0; i < temperaturas.length; i++) {
+            if (temperaturas[i] >= umbral) {
+                contador++;
+            } else {
+                continue;
+            }
+        }
+        return contador;
     }
 
     @Override
     public String toString() {
-        // POR HACER (2.4): Formato exacto:
-        // "Estacion: <nombreEstacion> | Dias: <N> | Promedio: <prom> C | Maxima: <max> C"
-        return "";
+        String s = "";
+        s += "Estacion: " + nombreEstacion + " | ";
+        s += "Dias: " + temperaturas.length + " | ";
+        s += "Promedio: " + this.calcularPromedio() + " C " + " | ";
+        s += "Maxima: " + this.obtenerMaxima() + " C " + " | ";
+        s += "\n";
+        return s;
     }
 
     // CONVERSION DE ESCALAS (PARTE 3)
